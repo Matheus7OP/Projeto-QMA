@@ -1,10 +1,12 @@
 package qma;
 
 public class Sistema {
-	private ControlePessoas controlePessoas;
+	private ControleAlunos controleAlunos;
 	
-	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
-		Funcao funcao = new Aluno(nome, matricula, codigoCurso, telefone, email);
-		this.controlePessoas = new ControlePessoas();
+	public Sistema() {
+		this.controleAlunos = new ControleAlunos();
 	}
+	
+	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email) {}
+	public void adicionarTutoria(String matricula, String disciplina, int proficiencia) {}
 }

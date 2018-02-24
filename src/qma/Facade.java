@@ -14,5 +14,10 @@ public class Facade {
 	}
 	
 	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
+		this.sistema.cadastrarAluno(nome, matricula, codigoCurso, telefone, email);
+	}
+	
+	public void tornarTutor(String matricula, String disciplina, int proficiencia) {
+		this.sistema.adicionarTutoria(matricula, disciplina, proficiencia);
 	}
 }
