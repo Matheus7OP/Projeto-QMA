@@ -1,7 +1,6 @@
 package qma;
 
 public class Pessoa {
-	
 	private String nome, matricula, telefone, email;
 	private int codigoCurso;
 	private Funcao funcao;
