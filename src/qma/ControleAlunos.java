@@ -11,7 +11,7 @@ public class ControleAlunos {
 	}
 	
 	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
-		Aluno aluno = new Aluno(String nome, String matricula, int codigoCurso, String telefone, String email);
+		Aluno aluno = new Aluno(nome, matricula, codigoCurso, telefone, email);
 		this.conjuntoAlunos.add(aluno);
 	}
 	
