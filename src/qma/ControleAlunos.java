@@ -15,11 +15,33 @@ public class ControleAlunos {
 		this.conjuntoAlunos.add(aluno);
 	}
 	
-	public void adicionarTutoria(String matricula, String disciplina, int proficiencia) {}
+	private Aluno getAluno(String desejado, String atributo) {
+		int quantidadeAlunos = this.getQuantidadeAlunos();
+		
+		for(int i = 0; i < quantidadeAlunos; i++) {
+			if( this.conjuntoAlunos.get(i).getInfoAluno(atributo).equals(desejado) ) {
+				return this.conjuntoAlunos.get(i);
+			}
+		}
+		
+		throw new IllegalArgumentException("Matricula não cadastrada no sistema.");
+	}
+	
+	public void adicionarTutoria(String matricula, String disciplina, int proficiencia) {
+		this.getAluno(matricula, "matricula").adicionarTutoria(disciplina, proficiencia);
+	}
 
 	public String listarTutores() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public int getQuantidadeAlunos() {
+		return this.conjuntoAlunos.size();
+	}
+	
+	public String recuperaAluno(String matricula) {
+		return this.getAluno(matricula, "matricula").toString();
 	}
 
 	public String recuperaTutor(String matricula) {
@@ -28,7 +50,6 @@ public class ControleAlunos {
 	}
 
 	public void cadastrarHorario(String email, String horario, String dia) {
-		// TODO Auto-generated method stub
-		
+		this.getAluno(email, "email").cadastrarHorarioDeAtendimento(horario, dia);	
 	}
 }
