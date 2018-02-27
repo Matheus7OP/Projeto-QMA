@@ -9,6 +9,9 @@ public class Facade {
 		EasyAccept.main(args);
 	}
 	
+	/**
+	 * Método inicializador da Facade.
+	 */
 	public Facade () {
 		this.sistema = new Sistema();
 	}
