@@ -49,6 +49,12 @@ public class Tutoria {
 	 * @param proficiencia a proficiencia do aluno na disciplina
 	 */
 	public void cadastrarDisciplina(String disciplina, int proficiencia) {
+		if (this.disciplinas.containsKey(disciplina)) {
+			throw new IllegalArgumentException("Erro na definicao de papel: Ja eh tutor dessa disciplina");
+		}
+		if (proficiencia <= 0) {
+			throw new IllegalArgumentException("Erro na definicao de papel: Proficiencia invalida");
+		}
 		this.disciplinas.put(disciplina, proficiencia);
 	}
 	

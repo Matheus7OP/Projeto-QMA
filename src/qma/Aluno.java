@@ -22,6 +22,9 @@ public class Aluno implements Comparable {
 	 * @param email o email do aluno
 	 */
 	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
+		if (nome.trim().equals("") || nome == null) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Nome nao pode ser vazio ou nulo");
+		}
 		this.validarParamAlunos(nome, matricula, codigoCurso, telefone, email);
 		this.nome = nome;
 		this.matricula = matricula;
@@ -42,11 +45,16 @@ public class Aluno implements Comparable {
 	 * @param email o email do aluno
 	 */
 	private void validarParamAlunos(String nome, String matricula, int codigoCurso, String telefone, String email) {
-		if (nome == null || matricula == null || telefone == null || email == null) {
+		if (matricula == null || telefone == null || email == null) {
 			throw new NullPointerException("Parâmetro para construir Aluno não pode ser null");
 		}
-		if (nome.trim().equals("") || matricula.trim().equals("") || email.trim().equals("")) {
+		if (matricula.trim().equals("") || email.trim().equals("")) {
 			throw new IllegalArgumentException("Parâmetro para construir Aluno não pode ser vazio");
+		}
+		
+		int indexArroba = email.indexOf("@"); 
+		if (indexArroba == -1 || indexArroba == email.length() - 1 || indexArroba == 0) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Email invalido");
 		}
 	}
 
