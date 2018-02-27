@@ -47,7 +47,7 @@ public class Sistema {
      * Lista todos os tutores cadastrados no
      * sistema.
      * 
-     * @return toString de todos os tutores, um por linha.
+     * @return toString de todos os tutores, separados por linha.
      */
 	public String listarTutores() {
 		return this.controleAlunos.listarTutores();
@@ -117,6 +117,15 @@ public class Sistema {
 	 */
 	public String getInfoAluno(String matricula, String atributo) {
 		return this.controleAlunos.getInfoAluno(matricula, atributo);
+	}
+
+	/**
+     * Lista todos os alunos cadastrados.
+     * 
+     * @return toString de todos os alunos, separados por vírgula.
+     */
+	public String listarAlunos() {		
+		return this.controleAlunos.listarAlunos();
 	}
 
 }

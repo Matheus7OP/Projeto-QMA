@@ -71,7 +71,7 @@ public class ControleAlunos {
 	/**
      * Lista todos os tutores cadastrados.
      * 
-     * @return toString de todos os tutores, um por linha.
+     * @return toString de todos os tutores, separados por linha.
      */
 	public String listarTutores() {
 		String info = "";
@@ -80,7 +80,8 @@ public class ControleAlunos {
 		
 		for(int i = 0; i < quantidadeAlunos; i++) {
 			if( this.conjuntoAlunos.get(i).possuiTutoria() ) {
-				info += this.conjuntoAlunos.get(i).toString() + System.lineSeparator();
+				if (!info.equals("")) info += ", ";
+				info += this.conjuntoAlunos.get(i).toString();
 			}
 		}
 		
@@ -114,8 +115,13 @@ public class ControleAlunos {
 	 * @return toString do tutor.
 	 */
 	public String recuperaTutor(String matricula) {
-		// TODO Auto-generated method stub
-		return null;
+		Aluno aluno = this.getAluno(matricula, "Matricula");
+		
+		if (!aluno.possuiTutoria()) {
+			throw new IllegalAccessError("Erro ao recuperar tutor: Aluno não é um tutor");
+		}
+		
+		return aluno.toString();
 	}
 	
 	/**
@@ -165,5 +171,24 @@ public class ControleAlunos {
 
 	public String getInfoAluno(String matricula, String atributo) {
 		return this.getAluno(matricula, "Matricula").getInfoAluno(atributo);
+	}
+
+	/**
+     * Lista todos os alunos cadastrados.
+     * 
+     * @return toString de todos os alunos, separados por vírgula.
+     */
+	public String listarAlunos() {
+		this.conjuntoAlunos.sort(null);
+		
+		String listaAlunos = "";		
+		int quantidadeAlunos = this.getQuantidadeAlunos();
+		
+		for(int i = 0; i < quantidadeAlunos; i++) {
+			if (i > 0) listaAlunos += ", ";
+			listaAlunos += this.conjuntoAlunos.get(i).toString();
+		}
+		
+		return listaAlunos;
 	}
 }
