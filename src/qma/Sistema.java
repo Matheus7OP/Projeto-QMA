@@ -40,8 +40,10 @@ public class Sistema {
 		this.controleAlunos.cadastrarAluno(nome, matricula, codigoCurso, telefone, email);
 	}
 
-    /**
-     * Lista todos os tutores cadastrados.
+	/**
+     * Lista todos os tutores cadastrados no
+     * sistema.
+     * 
      * @return toString de todos os tutores, um por linha.
      */
 	public String listarTutores() {
@@ -49,10 +51,11 @@ public class Sistema {
 	}
 
     /**
-     * Torna um aluno tutor de uma disciplina. Caso o aluno já seja um tutor lança um erro.
+     * Adiciona uma tutoria ao aluno designado.
+     * 
      * @param matricula matrícula do aluno.
      * @param disciplina disciplina da tutoria.
-     * @param proficiencia proficiência do aluno na disciplina em que deseja ser tutor.
+     * @param proficiencia proficiência do aluno na disciplina designada.
      */
 	public void adicionarTutoria(String matricula, String disciplina, int proficiencia) {
 		this.controleAlunos.adicionarTutoria(matricula, disciplina, proficiencia);
