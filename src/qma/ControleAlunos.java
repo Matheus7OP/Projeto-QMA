@@ -158,7 +158,10 @@ public class ControleAlunos {
 	 * @param dia dia da semana disponível para o horário de atendimento.
 	 */
 	public void cadastrarHorario(String email, String horario, String dia) {
-		this.getAluno(email, "Email", "Erro no cadastro de horario").cadastrarHorarioDeAtendimento(horario, dia);	
+		if (email.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no cadastrar horario: email nao pode ser vazio ou em branco");
+		}
+		this.getAluno(email, "Email", "Erro no cadastrar horario: tutor nao cadastrado").cadastrarHorarioDeAtendimento(horario, dia);	
 	}
 	
 	/**
@@ -168,7 +171,13 @@ public class ControleAlunos {
      * @param local local disponível para atendimento.
      */
 	public void cadastrarLocalDeAtendimento(String email, String local) {
-		this.getAluno(email, "Email", "Erro no cadastro de local de atendimento: Aluno nao encontrado").cadastrarLocalDeAtendimento(local);
+		if (email.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no cadastrar local de atendimento: email nao pode ser vazio ou em branco");
+		}
+		if (local.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no cadastrar local de atendimento: local nao pode ser vazio ou em branco");
+		}
+		this.getAluno(email, "Email", "Erro no cadastrar local de atendimento: tutor nao cadastrado").cadastrarLocalDeAtendimento(local);
 	}
 	
 	/**
