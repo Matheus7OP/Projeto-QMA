@@ -57,6 +57,26 @@ public class ControleAlunos {
 	}
 	
 	/**
+	 * Método utilizado para verificar se aluno com determinado
+	 * atributo está cadastrado no controle.
+	 * 
+	 * @param desejado o atributo desejado na busca
+	 * @param atributo o tipo de atributo a ser procurado
+	 * @return true, caso o aluno esteja presente no controle
+	 */
+	private boolean containsAluno(String desejado, String atributo) {
+		int quantidadeAlunos = this.getQuantidadeAlunos();
+		
+		for(int i = 0; i < quantidadeAlunos; i++) {
+			if( this.conjuntoAlunos.get(i).getInfoAluno(atributo).equals(desejado) ) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	/**
 	 * Método utilizado para adicionar uma nova tutoria
 	 * a determinado aluno.
 	 * 
