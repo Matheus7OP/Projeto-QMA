@@ -12,6 +12,7 @@ public class Sistema {
 	
 	/**
 	 * Recupera a representação textual de um aluno.
+	 * 
 	 * @param matricula matrícula do aluno.
 	 * @return toString do aluno com a matrícula dada.
 	 */
@@ -21,6 +22,7 @@ public class Sistema {
 	
 	/**
 	 * Retorna a representação textual de um tutor a partir de sua matrícula.
+	 * 
 	 * @param matricula matricula do tutor.
 	 * @return toString do tutor.
 	 */
@@ -30,6 +32,7 @@ public class Sistema {
 	
 	/**
 	 * Cadastra um novo aluno no sistema.
+	 * 
 	 * @param nome nome do aluno.	
 	 * @param matricula matrícula do aluno.
 	 * @param codigoCurso código do curso do aluno.
@@ -73,6 +76,7 @@ public class Sistema {
 
     /**
      * Cadastra um novo local de atendimento para o tutor.
+     * 
      * @param email email do tutor.
      * @param local local disponível para atendimento.
      */
@@ -82,6 +86,7 @@ public class Sistema {
 
 	/**
      * Consulta se um horário do tutor está disponível para atendimento.
+     * 
      * @param email email do tutor.
      * @param horario horário de atendimento consultado.
      * @param dia dia da semana consultado.
@@ -93,12 +98,25 @@ public class Sistema {
 
     /**
      * Consulta de um local de atendimento está cadastrado para determinado tutor. 
+     * 
      * @param email email do tutor.
      * @param local local de atendimento consultado.
      * @return true de o local estiver disponível para o tutor especificado.
      */
 	public boolean consultaLocal(String email, String local) {
 		return this.controleAlunos.consultaLocal(email, local);
+	}
+
+	/**
+	 * Método utilizado para recuperar alguma informação
+	 * específica relacionada à algum aluno cadastrado no sistema.
+	 * 
+	 * @param matricula a matricula do aluno requisitado
+	 * @param atributo o atributo desejado
+	 * @return o atributo requisitado de aluno
+	 */
+	public String getInfoAluno(String matricula, String atributo) {
+		return this.controleAlunos.getInfoAluno(matricula, atributo);
 	}
 
 }

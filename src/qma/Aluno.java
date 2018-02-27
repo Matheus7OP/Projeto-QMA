@@ -40,12 +40,14 @@ public class Aluno {
 	 */
 	public String getInfoAluno(String atributo) {		
 		switch(atributo) {
-			case "email":
+			case "Email":
 				return this.email;
-			case "nome":
+			case "Nome":
 				return this.nome;
-			case "telefone":
+			case "Telefone":
 				return this.telefone;
+			case "Matricula":
+				return this.matricula;
 			default:
 				throw new IllegalArgumentException("Atributo inexistente.");
 		}
