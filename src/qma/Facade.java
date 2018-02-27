@@ -12,6 +12,15 @@ public class Facade {
 	public Facade () {
 		this.sistema = new Sistema();
 	}
+	
+	/**
+	 * Recupera a representação textual de um aluno.
+	 * @param matricula matrícula do aluno.
+	 * @return toString do aluno com a matrícula dada.
+	 */
+	public String recuperaAluno(String matricula) {
+		return this.sistema.recuperaAluno(matricula);
+	}
 
 	/**
 	 * Cadastra um novo aluno no sistema.
@@ -44,7 +53,7 @@ public class Facade {
 	
 	
     /**
-     * Torna um aluno tutor. Caso o aluno já seja um tutor lança um erro.
+     * Torna um aluno tutor de uma disciplina. Caso o aluno já seja um tutor da discipina especificada lança um erro.
      * @param matricula matrícula do aluno.
      * @param disciplina disciplina da tutoria.
      * @param proficiencia proficiência do aluno na disciplina em que deseja ser tutor.
