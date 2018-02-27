@@ -34,4 +34,5 @@ expectError "Erro no cadastro de aluno: Email invalido" cadastrarAluno nome="Mat
 expectError "Erro no cadastro de aluno: Email invalido" cadastrarAluno nome="Matthew Melio" matricula="115260904" codigoCurso="10000" telefone="" email="@"
 
 expectError "Erro na obtencao de informacao de aluno: Aluno nao encontrado" getInfoAluno matricula="111111111" atributo="Nome"
+
 expectError "Erro na busca por aluno: Aluno nao encontrado" recuperaAluno matricula="77732723"
