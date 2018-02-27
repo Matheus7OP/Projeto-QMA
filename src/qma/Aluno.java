@@ -22,7 +22,7 @@ public class Aluno {
 				return this.nome;
 			case "telefone":
 				return this.telefone;
-			default:
+      default:
 				throw new IllegalArgumentException("Atributo inexistente.");
 		}
 	}

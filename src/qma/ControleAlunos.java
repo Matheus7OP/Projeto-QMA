@@ -16,4 +16,19 @@ public class ControleAlunos {
 	}
 	
 	public void adicionarTutoria(String matricula, String disciplina, int proficiencia) {}
+
+	public String listarTutores() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String recuperaTutor(String matricula) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void cadastrarHorario(String email, String horario, String dia) {
+		// TODO Auto-generated method stub
+		
+	}
 }
