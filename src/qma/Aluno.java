@@ -31,8 +31,12 @@ public class Aluno {
 		return this.tutoria.possuiDisciplina();
 	}
 	
-	public void tornarTutor(String disciplina, int proficiencia) {
+	public void adicionarTutoria(String disciplina, int proficiencia) {
 		this.tutoria.cadastrarDisciplina(disciplina, proficiencia);
+	}
+	
+	public void cadastrarHorarioDeAtendimento(String horario, String dia) {
+		this.tutoria.cadastrarHorarioDeAtendimento(horario, dia);
 	}
 	
 	@Override
