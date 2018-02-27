@@ -59,7 +59,7 @@ public class ControleAlunos {
 			}
 		}
 		
-		throw new IllegalArgumentException(mensagemErro + ": Aluno nao encontrado");
+		throw new IllegalArgumentException(mensagemErro);
 	}
 	
 	/**
@@ -91,7 +91,7 @@ public class ControleAlunos {
 	 * @param proficiencia sua proficiencia na disciplina
 	 */
 	public void adicionarTutoria(String matricula, String disciplina, int proficiencia) {
-		this.getAluno(matricula, "Matricula", "Erro ao adicionar tutoria").adicionarTutoria(disciplina, proficiencia);
+		this.getAluno(matricula, "Matricula", "Erro na definicao de papel: Tutor nao encontrado").adicionarTutoria(disciplina, proficiencia);
 	}
 	
 	/**
@@ -131,7 +131,7 @@ public class ControleAlunos {
 	 * @return toString do aluno com a matrícula dada.
 	 */
 	public String recuperaAluno(String matricula) {
-		return this.getAluno(matricula, "Matricula", "Erro na busca por aluno").toString();
+		return this.getAluno(matricula, "Matricula", "Erro na busca por aluno: Aluno nao encontrado").toString();
 	}
 	
 	/**
@@ -141,7 +141,7 @@ public class ControleAlunos {
 	 * @return toString do tutor.
 	 */
 	public String recuperaTutor(String matricula) {
-		Aluno aluno = this.getAluno(matricula, "Matricula", "Erro na busca de tutor");
+		Aluno aluno = this.getAluno(matricula, "Matricula", "Erro na busca por tutor: Tutor nao encontrado");
 		
 		if (!aluno.possuiTutoria()) {
 			throw new IllegalAccessError("Erro ao recuperar tutor: Aluno não é um tutor");
@@ -168,7 +168,7 @@ public class ControleAlunos {
      * @param local local disponível para atendimento.
      */
 	public void cadastrarLocalDeAtendimento(String email, String local) {
-		this.getAluno(email, "Email", "Erro no cadastro de local de atendimento").cadastrarLocalDeAtendimento(local);
+		this.getAluno(email, "Email", "Erro no cadastro de local de atendimento: Aluno nao encontrado").cadastrarLocalDeAtendimento(local);
 	}
 	
 	/**
@@ -180,7 +180,7 @@ public class ControleAlunos {
      */
 	public boolean consultaLocal(String email, String local) {
 		if( !this.containsAluno(email, "Email") ) return false;
-		return this.getAluno(email, "Email", "Erro na consulta de local").consultaLocal(local);
+		return this.getAluno(email, "Email", "Erro na consulta de local: Aluno nao encontrado").consultaLocal(local);
 	}
 	
 	/**
@@ -194,11 +194,11 @@ public class ControleAlunos {
      */
 	public boolean consultaHorario(String email, String horario, String dia) {
 		if( !this.containsAluno(email, "Email") ) return false;
-		return this.getAluno(email, "Email", "Erro na consulta de horario").consultaHorario(horario, dia);
+		return this.getAluno(email, "Email", "Erro na consulta de horario: Aluno nao encontrado").consultaHorario(horario, dia);
 	}
 
 	public String getInfoAluno(String matricula, String atributo) {
-		return this.getAluno(matricula, "Matricula", "Erro na obtencao de informacao de aluno").getInfoAluno(atributo);
+		return this.getAluno(matricula, "Matricula", "Erro na obtencao de informacao de aluno: Aluno nao encontrado").getInfoAluno(atributo);
 	}
 
 	/**
