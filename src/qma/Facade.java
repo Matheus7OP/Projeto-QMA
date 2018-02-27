@@ -1,6 +1,13 @@
 package qma;
 import easyaccept.EasyAccept;
 
+/**
+ * Classe que abstrai o sistema para facilitar
+ * o uso das classes abstraídas.
+ * 
+ * @author Matheus Oliveira Pereira
+ * @author Gabriel Alves Tavares
+ */
 public class Facade {
 	private Sistema sistema;
 	
@@ -24,6 +31,18 @@ public class Facade {
 	 */
 	public String recuperaAluno(String matricula) {
 		return this.sistema.recuperaAluno(matricula);
+	}
+	
+	/**
+	 * Método utilizado para recuperar alguma informação
+	 * específica relacionada à algum aluno cadastrado no sistema.
+	 * 
+	 * @param matricula a matricula do aluno requisitado
+	 * @param atributo o atributo desejado
+	 * @return o atributo requisitado de aluno
+	 */
+	public String getInfoAluno(String matricula, String atributo) {
+		return this.sistema.getInfoAluno(matricula, atributo);
 	}
 
 	/**

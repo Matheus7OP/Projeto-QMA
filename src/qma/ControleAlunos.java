@@ -65,7 +65,7 @@ public class ControleAlunos {
 	 * @param proficiencia sua proficiencia na disciplina
 	 */
 	public void adicionarTutoria(String matricula, String disciplina, int proficiencia) {
-		this.getAluno(matricula, "matricula").adicionarTutoria(disciplina, proficiencia);
+		this.getAluno(matricula, "Matricula").adicionarTutoria(disciplina, proficiencia);
 	}
 	
 	/**
@@ -104,7 +104,7 @@ public class ControleAlunos {
 	 * @return toString do aluno com a matrícula dada.
 	 */
 	public String recuperaAluno(String matricula) {
-		return this.getAluno(matricula, "matricula").toString();
+		return this.getAluno(matricula, "Matricula").toString();
 	}
 	
 	/**
@@ -126,7 +126,7 @@ public class ControleAlunos {
 	 * @param dia dia da semana disponível para o horário de atendimento.
 	 */
 	public void cadastrarHorario(String email, String horario, String dia) {
-		this.getAluno(email, "email").cadastrarHorarioDeAtendimento(horario, dia);	
+		this.getAluno(email, "Email").cadastrarHorarioDeAtendimento(horario, dia);	
 	}
 	
 	/**
@@ -136,7 +136,7 @@ public class ControleAlunos {
      * @param local local disponível para atendimento.
      */
 	public void cadastrarLocalDeAtendimento(String email, String local) {
-		this.getAluno(email, "email").cadastrarLocalDeAtendimento(local);
+		this.getAluno(email, "Email").cadastrarLocalDeAtendimento(local);
 	}
 	
 	/**
@@ -147,7 +147,7 @@ public class ControleAlunos {
      * @return true, caso o local estiver disponível para o tutor especificado.
      */
 	public boolean consultaLocal(String email, String local) {
-		return this.getAluno(email, "email").consultaLocal(local);
+		return this.getAluno(email, "Email").consultaLocal(local);
 	}
 	
 	/**
@@ -160,6 +160,10 @@ public class ControleAlunos {
      * @return true, caso o horário consultado esteja disponível.
      */
 	public boolean consultaHorario(String email, String horario, String dia) {
-		return this.getAluno(email, "email").consultaHorario(horario, dia);
+		return this.getAluno(email, "Email").consultaHorario(horario, dia);
+	}
+
+	public String getInfoAluno(String matricula, String atributo) {
+		return this.getAluno(matricula, "Matricula").getInfoAluno(atributo);
 	}
 }
