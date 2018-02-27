@@ -38,7 +38,7 @@ public class Agenda {
 	 * @param dia dia da semana (tres primeiras letras; i.e terça = "ter").
 	 */
 	public void cadastrarHorarioDeAtendimento(String horario, String dia) {
-		this.validarArgumentos(horario, dia, "Erro no cadastro de horario");
+		this.validarArgumentos(horario, dia, "Erro no cadastrar horario");
 		this.horariosDisponiveis.get(dia).add(horario);
 	}
 	
