@@ -7,7 +7,7 @@ package qma;
  * @author Matheus Oliveira Pereira
  * @author Gabriel Alves Tavares
  */
-public class Aluno {
+public class Aluno implements Comparable {
 	private Tutoria tutoria;
 	private String nome, matricula, telefone, email;
 	private int codigoCurso, nota;
@@ -22,6 +22,7 @@ public class Aluno {
 	 * @param email o email do aluno
 	 */
 	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
+		this.validarParamAlunos(nome, matricula, codigoCurso, telefone, email);
 		this.nome = nome;
 		this.matricula = matricula;
 		this.codigoCurso = codigoCurso;
@@ -30,6 +31,25 @@ public class Aluno {
 		this.tutoria = new Tutoria();
 	}
 	
+	/**
+	 * Validador de parâmetros do construtor de Aluno.
+	 * Checa se algum deles é vazio ou null.
+	 * 
+	 * @param nome o nome do aluno
+	 * @param matricula a matricula do aluno
+	 * @param codigoCurso o código do curso que o aluno está
+	 * @param telefone o telefone do aluno
+	 * @param email o email do aluno
+	 */
+	private void validarParamAlunos(String nome, String matricula, int codigoCurso, String telefone, String email) {
+		if (nome == null || matricula == null || telefone == null || email == null) {
+			throw new NullPointerException("Parâmetro para construir Aluno não pode ser null");
+		}
+		if (nome.trim().equals("") || matricula.trim().equals("") || email.trim().equals("")) {
+			throw new IllegalArgumentException("Parâmetro para construir Aluno não pode ser vazio");
+		}
+	}
+
 	/**
 	 * Método utilizado para recuperar alguma
 	 * informação de aluno, tal como seu email,
@@ -154,5 +174,11 @@ public class Aluno {
 		info += String.format(" - %s", this.email);
 		
 		return info;
+	}
+
+	@Override
+	public int compareTo(Object outro) {
+		Aluno comparado = (Aluno) outro;
+		return this.nome.compareTo(comparado.nome);
 	}
 }

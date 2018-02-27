@@ -72,7 +72,7 @@ public class Facade {
      * Lista todos os tutores cadastrados no
      * sistema.
      * 
-     * @return toString de todos os tutores, um por linha.
+     * @return toString de todos os tutores, separados por linha.
      */
     public String listarTutores() {
     	return this.sistema.listarTutores();
@@ -133,5 +133,14 @@ public class Facade {
      */
     public boolean consultaLocal(String email, String local) {
     	return this.sistema.consultaLocal(email, local);
+    }
+
+	/**
+     * Lista todos os alunos cadastrados.
+     * 
+     * @return toString de todos os alunos, separados por linha.
+     */
+    public String listarAlunos() {
+    	return this.sistema.listarAlunos();
     }
 }
