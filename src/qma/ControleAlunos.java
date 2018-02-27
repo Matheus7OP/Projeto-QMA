@@ -32,6 +32,11 @@ public class ControleAlunos {
 	 */
 	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
 		Aluno aluno = new Aluno(nome, matricula, codigoCurso, telefone, email);
+		
+		if( this.containsAluno(matricula, "Matricula") ) {
+			throw new IllegalArgumentException("Erro no cadastro de aluno: Aluno de mesma matricula ja cadastrado");
+		}
+		
 		this.conjuntoAlunos.add(aluno);
 	}
 	
@@ -42,6 +47,7 @@ public class ControleAlunos {
 	 * 
 	 * @param desejado o valor que é desejado encontrar em determinado atributo do aluno
 	 * @param atributo o atributo do aluno a ser verificado
+	 * @param a mensagem de erro a ser retornada
 	 * @return o objeto aluno que possui valor desejado para o atributo designado
 	 */
 	private Aluno getAluno(String desejado, String atributo, String mensagemErro) {
@@ -173,6 +179,7 @@ public class ControleAlunos {
      * @return true, caso o local estiver disponível para o tutor especificado.
      */
 	public boolean consultaLocal(String email, String local) {
+		if( !this.containsAluno(email, "Email") ) return false;
 		return this.getAluno(email, "Email", "Erro na consulta de local").consultaLocal(local);
 	}
 	
@@ -186,6 +193,7 @@ public class ControleAlunos {
      * @return true, caso o horário consultado esteja disponível.
      */
 	public boolean consultaHorario(String email, String horario, String dia) {
+		if( !this.containsAluno(email, "Email") ) return false;
 		return this.getAluno(email, "Email", "Erro na consulta de horario").consultaHorario(horario, dia);
 	}
 
