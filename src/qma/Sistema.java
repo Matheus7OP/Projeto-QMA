@@ -3,6 +3,9 @@ package qma;
 public class Sistema {
 	private ControleAlunos controleAlunos;
 	
+	/**
+	 * Construtor do objeto Sistema.
+	 */
 	public Sistema() {
 		this.controleAlunos = new ControleAlunos();
 	}
@@ -71,7 +74,7 @@ public class Sistema {
      * @param local local disponível para atendimento.
      */
 	public void cadastrarLocalDeAtendimento(String email, String local) {
-		this.controleAlunos.cadastarLocalDeAtendimento(email, local);
+		this.controleAlunos.cadastrarLocalDeAtendimento(email, local);
 	}
 
 	/**

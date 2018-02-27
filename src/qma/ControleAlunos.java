@@ -27,6 +27,14 @@ public class ControleAlunos {
 		throw new IllegalArgumentException("Matricula não cadastrada no sistema.");
 	}
 	
+	/**
+	 * Método utilizado para adicionar uma nova tutoria
+	 * a determinado aluno.
+	 * 
+	 * @param matricula a matricula do aluno a ser adicionada a tutoria
+	 * @param disciplina a disciplina desejada pelo aluno
+	 * @param proficiencia sua proficiencia na disciplina
+	 */
 	public void adicionarTutoria(String matricula, String disciplina, int proficiencia) {
 		this.getAluno(matricula, "matricula").adicionarTutoria(disciplina, proficiencia);
 	}
@@ -51,5 +59,17 @@ public class ControleAlunos {
 
 	public void cadastrarHorario(String email, String horario, String dia) {
 		this.getAluno(email, "email").cadastrarHorarioDeAtendimento(horario, dia);	
+	}
+
+	public void cadastrarLocalDeAtendimento(String email, String local) {
+		this.getAluno(email, "email").cadastrarLocalDeAtendimento(local);
+	}
+
+	public boolean consultaLocal(String email, String local) {
+		return this.getAluno(email, "email").consultaLocal(local);
+	}
+
+	public boolean consultaHorario(String email, String horario, String dia) {
+		return this.getAluno(email, "email").consultaHorario(horario, dia);
 	}
 }

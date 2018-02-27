@@ -27,6 +27,12 @@ public class Aluno {
 		}
 	}
 	
+	/**
+	 * Método utilizado para checar se o aluno em
+	 * questão possui ou não ao menos uma tutoria.
+	 * 
+	 * @return true, caso o aluno possua ao menos uma tutoria
+	 */
 	public boolean possuiTutoria() {
 		return this.tutoria.possuiDisciplina();
 	}
@@ -37,6 +43,18 @@ public class Aluno {
 	
 	public void cadastrarHorarioDeAtendimento(String horario, String dia) {
 		this.tutoria.cadastrarHorarioDeAtendimento(horario, dia);
+	}
+
+	public void cadastrarLocalDeAtendimento(String local) {
+		this.tutoria.cadastrarLocalDeAtendimento(local);
+	}
+
+	public boolean consultaLocal(String local) {
+		return this.tutoria.consultaLocal(local);
+	}
+	
+	public boolean consultaHorario(String horario, String dia) {
+		return this.tutoria.consultaHorario(horario, dia);
 	}
 	
 	@Override
