@@ -9,9 +9,10 @@ public class Tutoria {
 	private int nota, dinheiro;
 	private Set<String> locaisDeAtendimento;
 	private Map<String, Integer> disciplinas;
+	private Agenda agenda;
 	
 	public Tutoria() {
-		// criar classe Agenda
+		this.agenda = new Agenda();
 		this.dinheiro = 0;
 		this.nota = 4;
 		this.locaisDeAtendimento = new HashSet<String>();
@@ -31,7 +32,7 @@ public class Tutoria {
 	}
 	
 	public void cadastrarHorarioDeAtendimento(String horario, String dia) {
-		// criar classe Agenda
+		this.agenda.cadastrarHorarioDeAtendimento(horario, dia);
 	}
 	
 	public boolean consultaLocal(String local) {
@@ -39,7 +40,6 @@ public class Tutoria {
 	}
 	
 	public boolean consultaHorario(String horario, String dia) {
-		// criar classe Agenda, coloquei return true só para compilar
-		return true;
+		return this.agenda.consultaHorario(horario, dia);
 	}
 }
