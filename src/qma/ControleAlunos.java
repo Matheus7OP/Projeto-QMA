@@ -205,7 +205,15 @@ public class ControleAlunos {
 		if( !this.containsAluno(email, "Email") ) return false;
 		return this.getAluno(email, "Email", "Erro na consulta de horario: Aluno nao encontrado").consultaHorario(horario, dia);
 	}
-
+	
+	/**
+	 * Método utilizado para recuperar alguma informação
+	 * específica relacionada à algum aluno cadastrado no sistema.
+	 * 
+	 * @param matricula a matricula do aluno requisitado
+	 * @param atributo o atributo desejado
+	 * @return o atributo requisitado de aluno
+	 */
 	public String getInfoAluno(String matricula, String atributo) {
 		return this.getAluno(matricula, "Matricula", "Erro na obtencao de informacao de aluno: Aluno nao encontrado").getInfoAluno(atributo);
 	}
