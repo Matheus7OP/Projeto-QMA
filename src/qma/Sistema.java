@@ -1,5 +1,12 @@
 package qma;
 
+/**
+ * Classe que representa o sistema, em sua
+ * ideia mais geral.
+ * 
+ * @author Matheus Oliveira Pereira
+ * @author Gabriel Alves Tavares
+ */
 public class Sistema {
 	private ControleAlunos controleAlunos;
 	

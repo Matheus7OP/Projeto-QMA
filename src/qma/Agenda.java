@@ -13,7 +13,6 @@ import java.util.Set;
  * @author Gabriel Alves Tavares
  */
 public class Agenda {
-	
 	private Map <String, Set <String> > horariosDisponiveis;
 	
 	/**
@@ -67,7 +66,5 @@ public class Agenda {
 		if (horario.trim().equals("")) {
 			throw new IllegalArgumentException(mensagemErro + ": horario nao pode ser vazio ou em branco");
 		}
-	}
-	
-		
+	}	
 }
