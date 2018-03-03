@@ -143,4 +143,35 @@ public class Facade {
     public String listarAlunos() {
     	return this.sistema.listarAlunos();
     }
+    
+    /**
+     * Adiciona uma nota ao tutor designado para determinada ajuda.
+     * @param idAjuda id da ajuda.
+     * @param nota nota de 0 a 5 dado ao tutor.
+     * @return o novo nível do tutor.
+     */
+    public String avaliarTutor (int idAjuda, int nota) {
+    	return "";
+    	//return this.sistema.avaliarTutor(idAjuda, nota);
+    }
+    
+    /**
+     * Recupera a nota do tutor.
+     * @param matriculaTutor matrícula do tutor.
+     * @return a nota do tutor.
+     */
+    public double pegarNota(String matriculaTutor) {
+    	return 0;
+    	//return this.sistema.pegarNota(matriculaTutor);
+    }
+    
+    /**
+     * Retorna o nível do tutor. Pode ser "TOP", "Tutor" ou "Aprendiz".
+     * @param matriculaTutor matrícula do tutor.
+     * @return o nível do tutor, estabelecido conforme a nota do mesmo.
+     */
+    public String pegarNivel(String matriculaTutor) {
+    	return "";
+    	//return this.sistema.pegarNivel(matriculaTutor);
+    }
 }
