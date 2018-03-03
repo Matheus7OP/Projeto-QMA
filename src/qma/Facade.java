@@ -151,8 +151,7 @@ public class Facade {
      * @return o novo nível do tutor.
      */
     public String avaliarTutor (int idAjuda, int nota) {
-    	return "";
-    	//return this.sistema.avaliarTutor(idAjuda, nota);
+    	return this.sistema.avaliarTutor(idAjuda, nota);
     }
     
     /**
@@ -161,8 +160,7 @@ public class Facade {
      * @return a nota do tutor.
      */
     public double pegarNota(String matriculaTutor) {
-    	return 0;
-    	//return this.sistema.pegarNota(matriculaTutor);
+    	return this.sistema.pegarNota(matriculaTutor);
     }
     
     /**
@@ -171,8 +169,7 @@ public class Facade {
      * @return o nível do tutor, estabelecido conforme a nota do mesmo.
      */
     public String pegarNivel(String matriculaTutor) {
-    	return "";
-    	//return this.sistema.pegarNivel(matriculaTutor);
+    	return this.sistema.pegarNivel(matriculaTutor);
     }
   
     /**
