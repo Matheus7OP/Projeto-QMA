@@ -175,9 +175,9 @@ public class Facade {
     	//return this.sistema.pegarNivel(matriculaTutor);
     }
   
-     /** 
+    /**
      * Método utilizado para que um aluno cadastre um
-     * pedido de ajuda no sistema.
+     * pedido de ajuda presencial no sistema.
      * 
      * @param matrAluno a matricula do aluno que precisa de ajuda
      * @param disciplina a disciplina que o aluno precisa ser ajudado
@@ -187,7 +187,47 @@ public class Facade {
      * @return o id do pedido de ajuda
      */
     public int pedirAjudaPresencial (String matrAluno, String disciplina, String horario, String dia, String localInteresse) {
-		return 0;
+		// incompleto
+    	return 0;
 	}
-  
+    
+    /**
+     * Método utilizado para que um aluno cadastre um
+     * pedido de ajuda online no sistema.
+     * 
+     * @param matrAluno a matricula do aluno que precisa de ajuda
+     * @param disciplina a disciplina que o aluno precisa ser ajudado
+     * @return o id do pedido de ajuda
+     */
+    public int pedirAjudaOnline (String matrAluno, String disciplina) {
+    	// incompleto
+    	return 0;
+    }
+    
+    /**
+     * Método utilizado para recuperar o tutor
+     * que está associado ao pedido de ajuda
+     * designado na chamada.
+     * 
+     * @param idAjuda o id da ajuda
+     * @return a matricula do tutor que está encarregado da ajuda
+     * especificada, bem como a disciplina que o mesmo tem prodificiencia
+     */
+    public String pegarTutor(int idAjuda) {
+    	// incompleto
+    	return null;
+    }
+    
+    /**
+     * Método utilizado para recuperar alguma
+     * informação específica da ajuda solicitada.
+     * 
+     * @param idAjuda o id da ajuda solicitada
+     * @param atributo o atributo que se deseja recuperar
+     * @return o valor do atributo desejado
+     */
+    public String getInfoAjuda(int idAjuda, String atributo) {
+    	// incompleto
+    	return null;
+    }
 }
