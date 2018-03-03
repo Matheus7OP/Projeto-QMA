@@ -175,7 +175,7 @@ public class Facade {
     	//return this.sistema.pegarNivel(matriculaTutor);
     }
   
-     * Método utilizado para que um aluno cadastre um
+     /* Método utilizado para que um aluno cadastre um
      * pedido de ajuda no sistema.
      * 
      * @param matrAluno a matricula do aluno que precisa de ajuda
