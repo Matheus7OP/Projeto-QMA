@@ -16,6 +16,7 @@ public class Sistema {
 	 */
 	public Sistema() {
 		this.controleAlunos = new ControleAlunos();
+		this.controleAjudas = new ControleAjudas();
 	}
 	
 	/**
