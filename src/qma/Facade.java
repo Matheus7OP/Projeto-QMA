@@ -12,7 +12,14 @@ public class Facade {
 	private Sistema sistema;
 	
 	public static void main(String[] args) {
-		args = new String[] {"qma.Facade", "acceptanceTest/us1_test.txt", "acceptanceTest/us2_test.txt", "acceptanceTest/us3_test.txt"};
+		args = new String[] {"qma.Facade", 
+				"acceptanceTest/us1_test.txt", 
+				"acceptanceTest/us2_test.txt", 
+				"acceptanceTest/us3_test.txt",
+				"acceptanceTest/us4_test.txt", 
+				"acceptanceTest/us5_test.txt", 
+				"acceptanceTest/us6_test.txt"};
+		
 		EasyAccept.main(args);
 	}
 	

@@ -241,4 +241,8 @@ public class ControleAlunos {
 		// incompleto
 		return 0;
 	}
+
+	public String pegarNivel(String matriculaTutor) {
+		return this.getAluno(matriculaTutor, "Matricula", "Erro no pegar nível: Tutor não encontrado").pegarNivel(); 
+	}
 }
