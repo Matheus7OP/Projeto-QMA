@@ -11,7 +11,7 @@ expect "3" pedirAjudaPresencial matrAluno="111124242" disciplina="Programacao 2"
 expect "4" pedirAjudaPresencial matrAluno="116209078" disciplina="Programacao 2" horario="10:00" dia="ter" localInteresse="CAA 404"
 expect "5" pedirAjudaPresencial matrAluno="116209078" disciplina="Programacao 2" horario="16:00" dia="qui" localInteresse="CAA 404"
 
-expect "6" pedirAjudaOnline matrAluno="11620907" disciplina="Calculo 1"
+expect "6" pedirAjudaOnline matrAluno="116209078" disciplina="Calculo 1"
 expect "7" pedirAjudaOnline matrAluno="111124242" disciplina="ATAL"
 
 expect "Programacao 2" getInfoAjuda idAjuda=1 atributo="disciplina"
@@ -19,7 +19,7 @@ expect "15:00" getInfoAjuda idAjuda=1 atributo="horario"
 expect "seg" getInfoAjuda idAjuda=1 atributo="dia"
 expect "LCC3" getInfoAjuda idAjuda=1 atributo="localInteresse"
 
-expect "Tutor - 115212345, disciplina- ATAL" pegarTutor idAjuda=7
+expect "Tutor - 115212345, disciplina - ATAL" pegarTutor idAjuda=7
 expect "Tutor - 115260904, horario - 15:00, dia - seg, local - LCC3, disciplina - Programacao 2" pegarTutor idAjuda=1
 
 
