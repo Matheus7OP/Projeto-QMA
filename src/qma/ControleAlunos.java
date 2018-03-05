@@ -236,4 +236,9 @@ public class ControleAlunos {
 		
 		return listaAlunos;
 	}
+
+	public double pegarNota(String matriculaTutor) {
+		// incompleto
+		return 0;
+	}
 }
