@@ -227,4 +227,17 @@ public class Facade {
     	// incompleto
     	return null;
     }
+    
+    /**
+     * Método utilizado para doar quantias em
+     * dinheiro para o tutor especificado. Dessa quantia,
+     * uma certa taxa é retirada para o sistema, dependendo
+     * da avaliação atual do tutor.
+     * 
+     * @param matriculaTutor a matricula do tutor que se deseja doar
+     * @param totalCentavos o total de dinheiro (em centavos) que se deseja doar ao tutor
+     */
+    public void doar(String matriculaTutor, int totalCentavos) {
+    	// incompleto
+    }
 }
