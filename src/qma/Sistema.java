@@ -9,6 +9,7 @@ package qma;
  */
 public class Sistema {
 	private ControleAlunos controleAlunos;
+	private ControleAjudas controleAjudas;
 	
 	/**
 	 * Construtor do objeto Sistema.
@@ -151,7 +152,7 @@ public class Sistema {
      * @return a nota do tutor.
      */
 	public double pegarNota(String matriculaTutor) {
-		return 0; // INCOMPLETO
+		return this.controleAlunos.pegarNota(matriculaTutor); // INCOMPLETO
 	}
 
     /**

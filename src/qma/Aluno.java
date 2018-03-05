@@ -11,7 +11,7 @@ public class Aluno implements Comparable {
 	private Tutoria tutoria;
 	private String nome, matricula, telefone, email;
 	private int codigoCurso, nota;
-	
+
 	/**
 	 * Construtor do objeto Aluno.
 	 * 
