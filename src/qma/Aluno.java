@@ -143,6 +143,10 @@ public class Aluno implements Comparable {
 		return this.tutoria.consultaHorario(horario, dia);
 	}
 	
+	public String pegarNivel() {
+		return this.tutoria.pegarNivel();
+	}	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -189,4 +193,5 @@ public class Aluno implements Comparable {
 		Aluno comparado = (Aluno) outro;
 		return this.nome.compareTo(comparado.nome);
 	}
+
 }

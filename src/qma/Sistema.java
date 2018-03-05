@@ -16,6 +16,7 @@ public class Sistema {
 	 */
 	public Sistema() {
 		this.controleAlunos = new ControleAlunos();
+		this.controleAjudas = new ControleAjudas();
 	}
 	
 	/**
@@ -143,7 +144,7 @@ public class Sistema {
      * @return o novo nível do tutor.
      */
 	public String avaliarTutor(int idAjuda, int nota) {
-		return null; // INCOMPLETO
+		return this.controleAjudas.avaliarTutor(idAjuda, nota);
 	}
 
     /**
@@ -152,7 +153,7 @@ public class Sistema {
      * @return a nota do tutor.
      */
 	public double pegarNota(String matriculaTutor) {
-		return this.controleAlunos.pegarNota(matriculaTutor); // INCOMPLETO
+		return this.controleAlunos.pegarNota(matriculaTutor);
 	}
 
     /**
@@ -161,7 +162,7 @@ public class Sistema {
      * @return o nível do tutor, estabelecido conforme a nota do mesmo.
      */	
 	public String pegarNivel(String matriculaTutor) {
-		return null; // INCOMPLETO
+		return this.controleAlunos.pegarNivel(matriculaTutor);
 	}
 
 }

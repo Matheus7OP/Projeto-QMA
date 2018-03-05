@@ -10,4 +10,8 @@ public class ControleAjudas {
 	public ControleAjudas () {
 		this.ajudas = new ArrayList <Ajuda>();
 	}
+
+	public String avaliarTutor(int idAjuda, int nota) {
+		return null; // INCOMPLETO
+	}
 }

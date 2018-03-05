@@ -16,7 +16,8 @@ import java.util.Map;
  * @author Gabriel Alves Tavares
  */
 public class Tutoria {
-	private int nota, dinheiro;
+	private double nota;
+	private int dinheiro;
 	private Set<String> locaisDeAtendimento;
 	private Map<String, Integer> disciplinas;
 	private Agenda agenda;
@@ -97,5 +98,23 @@ public class Tutoria {
      */
 	public boolean consultaHorario(String horario, String dia) {
 		return this.agenda.consultaHorario(horario, dia);
+	}
+	
+	/**
+	 * Define um nível para o tutor conforme a nota que ele possui: "Top", "Tutor" ou "Aprendiz".
+	 * @return string com o nível correspondente a nota do tutor.
+	 */
+	public String pegarNivel() {
+		String nivel;
+		
+		if (this.nota > 4.5) {
+			nivel = "TOP";
+		} else if (this.nota > 3) {
+			nivel = "Tutor";
+		} else {
+			nivel = "Aprendiz";
+		}
+		
+		return nivel;
 	}
 }
