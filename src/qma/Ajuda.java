@@ -1,4 +1,4 @@
-package qma;
+	package qma;
 
 /**
  * Classe abstrata que representa uma
