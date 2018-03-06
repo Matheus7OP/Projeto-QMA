@@ -43,6 +43,10 @@ public class ControleAjudas {
 		return this.conjuntoAjudas.get(idAjuda - 1).pegarTutor();
 	}
 	
+	public String getMatriculaTutor(int idAjuda) {
+		return this.conjuntoAjudas.get(idAjuda - 1).getMatriculaTutor();
+	}
+	
 	public String getInfoAjuda(int idAjuda, String atributo) {
 		if (idAjuda < 0) {
 			throw new IllegalArgumentException("Erro ao tentar recuperar info da ajuda : id nao pode menor que zero ");
