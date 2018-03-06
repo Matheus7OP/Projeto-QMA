@@ -194,5 +194,17 @@ public class Sistema {
 		String matriculaTutor = getMelhorTutorDisponivel(disciplina);
 		return this.controleAjudas.pedirAjudaPresencial(matriculaAluno, matriculaTutor, disciplina, horario, dia, localInteresse);
 	}
-
+	
+	/**
+     * Método utilizado para que um aluno cadastre um
+     * pedido de ajuda online no sistema.
+     * 
+     * @param matrAluno a matricula do aluno que precisa de ajuda
+     * @param disciplina a disciplina que o aluno precisa ser ajudado
+     * @return o id do pedido de ajuda
+     */
+    public int pedirAjudaOnline (String matrAluno, String disciplina) {
+    	// incompleto
+    	return 0;
+    }
 }

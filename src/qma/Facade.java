@@ -202,8 +202,7 @@ public class Facade {
      * @return o id do pedido de ajuda
      */
     public int pedirAjudaOnline (String matrAluno, String disciplina) {
-    	// incompleto
-    	return 0;
+    	return this.sistema.pedirAjudaOnline(matrAluno, disciplina);
     }
     
     /**

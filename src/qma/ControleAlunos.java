@@ -259,18 +259,8 @@ public class ControleAlunos {
 				continue;
 			}
 			
-			if( aluno.possuiTutoria() ) {
-				if( aluno.possuiTutoriaNaDisciplina(disciplina) ) {
-					if( melhorTutor.pegarNota() == aluno.pegarNota() ) {
-						if( melhorTutor.getId() > aluno.getInfoAluno() ) ) {
-							melhorTutor = aluno;
-						}
-					}
-					
-					if( melhorTutor.pegarNota() < aluno.pegarNota() ) {
-						melhorTutor = aluno;
-					}
-				}
+			if( aluno.melhorTutor(melhorTutor, disciplina) ) {
+				melhorTutor = aluno;
 			}
 		}
 		

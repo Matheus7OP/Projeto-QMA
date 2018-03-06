@@ -172,6 +172,20 @@ public class Aluno implements Comparable {
 		return String.format("%.2f", this.tutoria.getNota());
 	}
 	
+	public boolean melhorTutor(Aluno outroTutor, String disciplina) {
+		if( this.possuiTutoria() && outroTutor.possuiTutoria() ) {
+			if( this.possuiTutoriaNaDisciplina(disciplina) ) {
+				
+				if( outroTutor.pegarNota() == this.pegarNota() ) {
+					return outroTutor.getId() > this.getId(); 
+				}
+				
+				return outroTutor.tutoria.getNota() < this.tutoria.getNota();
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -218,6 +232,4 @@ public class Aluno implements Comparable {
 		Aluno comparado = (Aluno) outro;
 		return this.nome.compareTo(comparado.nome);
 	}
-
-
 }
