@@ -237,7 +237,7 @@ public class ControleAlunos {
 		return listaAlunos;
 	}
 
-	public double pegarNota(String matriculaTutor) {
+	public String pegarNota(String matriculaTutor) {
 		return this.getAluno(matriculaTutor, "Matricula", "Erro no pegar nível: Tutor não encontrado").pegarNota();
 	}
 
@@ -246,6 +246,6 @@ public class ControleAlunos {
 	}
 
 	public void avaliarTutor(String matriculaTutor, int nota) {
-		this.getAluno(matriculaTutor, "Matricula", "Erro no avaliar tutor: Tutor não encontrado").avaliarTutor(nota);
+		return;
 	}
 }
