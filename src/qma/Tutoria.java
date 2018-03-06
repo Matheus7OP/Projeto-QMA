@@ -39,8 +39,19 @@ public class Tutoria {
 	 * 
 	 * @return true, caso haja ao menos uma disciplina cadastrada
 	 */
-	public boolean possuiDisciplina() {
+	public boolean possuiAlgumaDisciplina() {
 		return !(this.disciplinas.size() == 0);
+	}
+	
+	/**
+	 * Método utilizado para checar determinada
+	 * disciplina existe na tutoria.
+	 * 
+	 * @param disciplina a disciplina que se deseja verificar
+	 * @return true, caso a disciplina esteja na tutoria
+	 */
+	public boolean possuiDisciplina(String disciplina) {
+		return this.disciplinas.containsKey(disciplina);
 	}
 	
 	/**

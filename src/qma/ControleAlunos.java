@@ -31,7 +31,7 @@ public class ControleAlunos {
 	 * @param email o email do aluno
 	 */
 	public void cadastrarAluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
-		Aluno aluno = new Aluno(nome, matricula, codigoCurso, telefone, email);
+		Aluno aluno = new Aluno(nome, matricula, codigoCurso, telefone, email, this.getQuantidadeAlunos());
 		
 		if( this.containsAluno(matricula, "Matricula") ) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Aluno de mesma matricula ja cadastrado");
@@ -93,6 +93,7 @@ public class ControleAlunos {
 	public void adicionarTutoria(String matricula, String disciplina, int proficiencia) {
 		this.getAluno(matricula, "Matricula", "Erro na definicao de papel: Tutor nao encontrado").adicionarTutoria(disciplina, proficiencia);
 	}
+	
 	
 	/**
      * Lista todos os tutores cadastrados.
@@ -247,5 +248,36 @@ public class ControleAlunos {
 
 	public void avaliarTutor(String matriculaTutor, int nota) {
 		this.getAluno(matriculaTutor, "Matricula", "Erro no avaliar tutor: Tutor não encontrado").avaliarTutor(nota);
+	}
+
+	public String getMelhorTutorDisponivel(String disciplina) {
+		Aluno melhorTutor = null;
+		
+		for(Aluno aluno : this.conjuntoAlunos) {
+			if( melhorTutor == null ) {
+				melhorTutor = aluno;
+				continue;
+			}
+			
+			if( aluno.possuiTutoria() ) {
+				if( aluno.possuiTutoriaNaDisciplina(disciplina) ) {
+					if( melhorTutor.pegarNota() == aluno.pegarNota() ) {
+						if( melhorTutor.getId() > aluno.getInfoAluno() ) ) {
+							melhorTutor = aluno;
+						}
+					}
+					
+					if( melhorTutor.pegarNota() < aluno.pegarNota() ) {
+						melhorTutor = aluno;
+					}
+				}
+			}
+		}
+		
+		if(melhorTutor == null) {
+			throw new IllegalArgumentException("Não existe tutor disponível");
+		}
+		
+		return melhorTutor.getInfoAluno("matricula");
 	}
 }
