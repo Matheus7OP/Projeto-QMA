@@ -92,6 +92,20 @@ public class Aluno implements Comparable {
 	}
 	
 	/**
+	 * Retorna a nota da tutoria do objeto aluno,
+	 * caso o mesmo possua ao menos uma tutoria.
+	 * 
+	 * @return a nota da tutoria do aluno
+	 */
+	public double getNotaTutoria() {
+		if( !(this.possuiTutoria()) ) {
+			throw new IllegalArgumentException("O aluno não possui tutoria! Por isso, não possui nota de sua Tutoria.");
+		}
+		
+		return this.tutoria.getNota();
+	}
+	
+	/**
 	 * Método utilizado para checar se o aluno em
 	 * questão possui ou não ao menos uma tutoria.
 	 * 
@@ -171,21 +185,7 @@ public class Aluno implements Comparable {
 		}
 		return String.format("%.2f", this.tutoria.getNota());
 	}
-	
-	public boolean melhorTutor(Aluno outroTutor, String disciplina) {
-		if( this.possuiTutoria() && outroTutor.possuiTutoria() ) {
-			if( this.possuiTutoriaNaDisciplina(disciplina) ) {
-				
-				if( outroTutor.pegarNota() == this.pegarNota() ) {
-					return outroTutor.getId() > this.getId(); 
-				}
-				
-				return outroTutor.tutoria.getNota() < this.tutoria.getNota();
-			}
-		}
-		return false;
-	}
-	
+		
 	@Override
 	public int hashCode() {
 		final int prime = 31;

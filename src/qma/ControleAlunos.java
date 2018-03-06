@@ -250,17 +250,37 @@ public class ControleAlunos {
 		return;
 	}
 
+	/**
+	 * Método utilizado para recuperar a matrícula do melhor
+	 * tutor disponível, naquele momento, para tutorar a 
+	 * disciplina designada.
+	 * 
+	 * @param disciplina a disciplina a ser tutorada
+	 * @return a matricula do tutor mais apto a tutorar a disciplina
+	 */
 	public String getMelhorTutorDisponivel(String disciplina) {
 		Aluno melhorTutor = null;
 		
 		for(Aluno aluno : this.conjuntoAlunos) {
-			if( melhorTutor == null ) {
+			if( melhorTutor == null && aluno.possuiTutoriaNaDisciplina(disciplina) ) {
 				melhorTutor = aluno;
 				continue;
 			}
 			
-			if( aluno.melhorTutor(melhorTutor, disciplina) ) {
-				melhorTutor = aluno;
+			if( aluno.possuiTutoria() ) {
+				if( aluno.possuiTutoriaNaDisciplina(disciplina) ) {
+					
+					if( melhorTutor.getNotaTutoria() == aluno.getNotaTutoria() ) {
+						if( melhorTutor.getId() > aluno.getId() ) {
+							melhorTutor = aluno;
+						}
+					}
+					else {
+						if( melhorTutor.getNotaTutoria() < aluno.getNotaTutoria() ) {
+							melhorTutor = aluno;
+						}
+					}
+				}
 			}
 		}
 		
