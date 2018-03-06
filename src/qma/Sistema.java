@@ -168,12 +168,12 @@ public class Sistema {
 	}
 	
 	/**
-	 * Método utilizado para recuperar a matricula do
-	 * melhor tutor disponível para tutorar determinada
-	 * disciplina, naquele momento.
+	 * Método utilizado para recuperar a matrícula do melhor
+	 * tutor disponível, naquele momento, para tutorar a 
+	 * disciplina designada.
 	 * 
-	 * @param disciplina a disciplina que se deseja tutoria
-	 * @return a matricula do melhor tutor
+	 * @param disciplina a disciplina a ser tutorada
+	 * @return a matricula do tutor mais apto a tutorar a disciplina
 	 */
 	public String getMelhorTutorDisponivel(String disciplina) {
 		return this.controleAlunos.getMelhorTutorDisponivel(disciplina);
