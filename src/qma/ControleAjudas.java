@@ -22,22 +22,22 @@ public class ControleAjudas {
 		Ajuda novaAjuda = new AjudaPresencial(matriculaAluno, matriculaTutor, disciplina, horario, dia, localInteresse);
 		this.inserirNovaAjuda(novaAjuda);
 		
-		return (this.getQuantidadeAjudas() - 1);
+		return (this.getQuantidadeAjudas());
 	}
 	
 	public int pedirAjudaOnline(String matriculaAluno, String matriculaTutor, String disciplina) {
 		Ajuda novaAjuda = new AjudaOnline(matriculaAluno, matriculaTutor, disciplina);
 		this.inserirNovaAjuda(novaAjuda);
 		
-		return (this.getQuantidadeAjudas() - 1);
+		return (this.getQuantidadeAjudas());
 	}
 	
 	public String pegarTutor(int idAjuda) {
-		return this.conjuntoAjudas.get(idAjuda).pegarTutor();
+		return this.conjuntoAjudas.get(idAjuda - 1).pegarTutor();
 	}
 	
 	public String getInfoAjuda(int idAjuda, String atributo) {
-		return this.conjuntoAjudas.get(idAjuda).getInfoAjuda(atributo);
+		return this.conjuntoAjudas.get(idAjuda - 1).getInfoAjuda(atributo);
 	}
 	
 }
