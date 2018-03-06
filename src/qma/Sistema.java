@@ -143,10 +143,10 @@ public class Sistema {
      * @param nota nota de 0 a 5 dado ao tutor.
      * @return o novo nível do tutor.
      */
-	public String avaliarTutor(int idAjuda, int nota) {
+	public void avaliarTutor(int idAjuda, int nota) {
 		String matriculaTutor = this.controleAjudas.pegarTutor(idAjuda);
+		
 		this.controleAlunos.avaliarTutor(matriculaTutor, nota);
-		return "";
 	}
 
     /**
@@ -154,7 +154,7 @@ public class Sistema {
      * @param matriculaTutor matrícula do tutor.
      * @return a nota do tutor.
      */
-	public double pegarNota(String matriculaTutor) {
+	public String pegarNota(String matriculaTutor) {
 		return this.controleAlunos.pegarNota(matriculaTutor);
 	}
 

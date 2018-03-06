@@ -160,6 +160,17 @@ public class Aluno implements Comparable {
 	public String pegarNivel() {
 		return this.tutoria.pegarNivel();
 	}	
+
+	public void avaliarTutor(int nota) {
+		this.tutoria.avaliarTutor(nota);		
+	}
+	
+	public String pegarNota() {
+		if (!this.possuiTutoria()) {
+			throw new IllegalAccessError("Erro no pegar nota: Aluno não é tutor");
+		}
+		return String.format("%.2f", this.tutoria.getNota());
+	}
 	
 	@Override
 	public int hashCode() {
@@ -208,12 +219,5 @@ public class Aluno implements Comparable {
 		return this.nome.compareTo(comparado.nome);
 	}
 
-	public void avaliarTutor(int nota) {
-		this.tutoria.avaliarTutor(nota);		
-	}
-
-	public double pegarNota() {
-		return this.tutoria.getNota();
-	}
 
 }

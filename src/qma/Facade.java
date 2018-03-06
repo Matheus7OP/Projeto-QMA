@@ -155,10 +155,9 @@ public class Facade {
      * Adiciona uma nota ao tutor designado para determinada ajuda.
      * @param idAjuda id da ajuda.
      * @param nota nota de 0 a 5 dado ao tutor.
-     * @return o novo nível do tutor.
      */
-    public String avaliarTutor (int idAjuda, int nota) {
-    	return this.sistema.avaliarTutor(idAjuda, nota);
+    public void avaliarTutor (int idAjuda, int nota) {
+    	this.sistema.avaliarTutor(idAjuda, nota);
     }
     
     /**
@@ -166,7 +165,7 @@ public class Facade {
      * @param matriculaTutor matrícula do tutor.
      * @return a nota do tutor.
      */
-    public double pegarNota(String matriculaTutor) {
+    public String pegarNota(String matriculaTutor) {
     	return this.sistema.pegarNota(matriculaTutor);
     }
     
