@@ -10,7 +10,7 @@ package qma;
 public class Aluno implements Comparable {
 	private Tutoria tutoria;
 	private String nome, matricula, telefone, email;
-	private int codigoCurso, nota;
+	private int codigoCurso, nota, id;
 
 	/**
 	 * Construtor do objeto Aluno.
@@ -21,7 +21,7 @@ public class Aluno implements Comparable {
 	 * @param telefone o telefone do aluno
 	 * @param email o email do aluno
 	 */
-	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String email) {
+	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String email, int id) {
 		if (nome.trim().equals("") || nome == null) {
 			throw new IllegalArgumentException("Erro no cadastro de aluno: Nome nao pode ser vazio ou nulo");
 		}
@@ -31,6 +31,7 @@ public class Aluno implements Comparable {
 		this.codigoCurso = codigoCurso;
 		this.telefone = telefone;
 		this.email = email;
+		this.id = id;
 		this.tutoria = new Tutoria();
 	}
 	
@@ -82,13 +83,22 @@ public class Aluno implements Comparable {
 	}
 	
 	/**
+	 * Retorna o id do aluno.
+	 * 
+	 * @return o id do aluno
+	 */
+	public int getId() {
+		return this.id;
+	}
+	
+	/**
 	 * Método utilizado para checar se o aluno em
 	 * questão possui ou não ao menos uma tutoria.
 	 * 
 	 * @return true, caso o aluno possua ao menos uma tutoria
 	 */
 	public boolean possuiTutoria() {
-		return this.tutoria.possuiDisciplina();
+		return this.tutoria.possuiAlgumaDisciplina();
 	}
 	
 	/**
@@ -141,6 +151,10 @@ public class Aluno implements Comparable {
      */
 	public boolean consultaHorario(String horario, String dia) {
 		return this.tutoria.consultaHorario(horario, dia);
+	}
+	
+	public boolean possuiTutoriaNaDisciplina(String discipĺina) {
+		return this.tutoria.possuiDisciplina(discipĺina);
 	}
 	
 	public String pegarNivel() {

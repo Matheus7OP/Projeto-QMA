@@ -166,5 +166,33 @@ public class Sistema {
 	public String pegarNivel(String matriculaTutor) {
 		return this.controleAlunos.pegarNivel(matriculaTutor);
 	}
+	
+	/**
+	 * Método utilizado para recuperar a matricula do
+	 * melhor tutor disponível para tutorar determinada
+	 * disciplina, naquele momento.
+	 * 
+	 * @param disciplina a disciplina que se deseja tutoria
+	 * @return a matricula do melhor tutor
+	 */
+	public String getMelhorTutorDisponivel(String disciplina) {
+		return this.controleAlunos.getMelhorTutorDisponivel(disciplina);
+	}
+	
+	/**
+     * Método utilizado para que um aluno cadastre um
+     * pedido de ajuda presencial no sistema.
+     * 
+     * @param matrAluno a matricula do aluno que precisa de ajuda
+     * @param disciplina a disciplina que o aluno precisa ser ajudado
+     * @param horario o horario em que o aluno tem interesse em ser atendido
+     * @param dia o dia em que o aluno tem interesse em ser atendido
+     * @param localInteresse o local que o aluno tem interesse em ser atendido
+     * @return o id do pedido de ajuda
+     */
+	public int pedirAjudaPresencial(String matriculaAluno, String disciplina, String horario, String dia, String localInteresse) {
+		String matriculaTutor = getMelhorTutorDisponivel(disciplina);
+		return this.controleAjudas.pedirAjudaPresencial(matriculaAluno, matriculaTutor, disciplina, horario, dia, localInteresse);
+	}
 
 }
