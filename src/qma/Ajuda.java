@@ -10,7 +10,7 @@ public abstract class Ajuda {
 		this.disciplina = disciplina;
 	}
 	
-	public abstract String getInfoAjuda(int idAjuda, String atributo);
+	public abstract String getInfoAjuda(String atributo);
 	
 	public String getDisciplina() {
 		return this.disciplina;

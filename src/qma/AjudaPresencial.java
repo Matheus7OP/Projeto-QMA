@@ -12,7 +12,7 @@ public class AjudaPresencial extends Ajuda {
 	}
 
 	@Override
-	public String getInfoAjuda(int idAjuda, String atributo) {
+	public String getInfoAjuda(String atributo) {
 		switch(atributo) {
 			case "disciplina":
 				return this.getDisciplina();
