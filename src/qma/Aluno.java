@@ -194,4 +194,12 @@ public class Aluno implements Comparable {
 		return this.nome.compareTo(comparado.nome);
 	}
 
+	public void avaliarTutor(int nota) {
+		this.tutoria.avaliarTutor(nota);		
+	}
+
+	public double pegarNota() {
+		return this.tutoria.getNota();
+	}
+
 }

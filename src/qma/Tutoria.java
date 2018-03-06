@@ -28,7 +28,7 @@ public class Tutoria {
 	public Tutoria() {
 		this.agenda = new Agenda();
 		this.dinheiro = 0;
-		this.nota = 4;
+		this.nota = 4.0;
 		this.locaisDeAtendimento = new HashSet<String>();
 		this.disciplinas = new HashMap<String, Integer>();
 	}
@@ -116,5 +116,14 @@ public class Tutoria {
 		}
 		
 		return nivel;
+	}
+
+	public void avaliarTutor(int nota) {
+		// pontuação_final = (pontuação_inicial*5 + pontuação_recebida) / 6.
+		this.nota = (this.nota * 5 + nota) / 6;
+	}
+
+	public double getNota() {
+		return this.nota;
 	}
 }
