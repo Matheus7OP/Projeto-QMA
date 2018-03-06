@@ -25,7 +25,7 @@ public class AjudaOnline extends Ajuda{
 			case "disciplina":
 				return this.getDisciplina();
 			default:
-				throw new IllegalArgumentException("Atributo inexistente!");
+				throw new IllegalArgumentException("Erro ao tentar recuperar info da ajuda : atributo nao encontrado");
 		}
 	}
 

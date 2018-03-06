@@ -40,7 +40,7 @@ public class AjudaPresencial extends Ajuda {
 			case "localInteresse":
 				return this.localInteresse;
 			default:
-				throw new IllegalArgumentException("Atributo inexistente!");
+				throw new IllegalArgumentException("Erro ao tentar recuperar info da ajuda : atributo nao encontrado");
 		}
 	}
 

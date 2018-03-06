@@ -159,12 +159,12 @@ public class Facade {
     public void avaliarTutor (int idAjuda, int nota) {
     	this.sistema.avaliarTutor(idAjuda, nota);
     }
-    
-    /**
-     * Recupera a nota do tutor.
-     * @param matriculaTutor matrícula do tutor.
-     * @return a nota do tutor.
-     */
+
+	/**
+	 * Recupera a nota de um tutor.
+	 * @param matriculaTutor matrícula do tutor.
+	 * @return string formatada com duas casas decimais: a nota do tutor.
+	 */
     public String pegarNota(String matriculaTutor) {
     	return this.sistema.pegarNota(matriculaTutor);
     }

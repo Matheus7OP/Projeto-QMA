@@ -171,14 +171,30 @@ public class Aluno implements Comparable {
 		return this.tutoria.possuiDisciplina(discipĺina);
 	}
 	
+    /**
+     * Retorna o nível da tutoria desse aluno. Pode ser "TOP", "Tutor" ou "Aprendiz".
+     * 
+     * @return o nível do tutor, estabelecido conforme a nota do mesmo.
+     */	
 	public String pegarNivel() {
 		return this.tutoria.pegarNivel();
 	}	
 
+
+	/**
+     * Adiciona uma nota ao tutor designado para determinada ajuda.
+     * 
+     * @param nota nota de 0 a 5 dada ao tutor.
+     */
 	public void avaliarTutor(int nota) {
 		this.tutoria.avaliarTutor(nota);		
 	}
 	
+	/**
+	 * Recupera a nota de um tutor.
+	 * @param matriculaTutor matrícula do tutor.
+	 * @return string formatada com duas casas decimais: a nota do tutor.
+	 */
 	public String pegarNota() {
 		if (!this.possuiTutoria()) {
 			throw new IllegalAccessError("Erro no pegar nota: Aluno não é tutor");

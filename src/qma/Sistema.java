@@ -139,8 +139,9 @@ public class Sistema {
 
 	/**
      * Adiciona uma nota ao tutor designado para determinada ajuda.
+     * 
      * @param idAjuda id da ajuda.
-     * @param nota nota de 0 a 5 dado ao tutor.
+     * @param nota nota de 0 a 5 dada ao tutor.
      * @return o novo nível do tutor.
      */
 	public void avaliarTutor(int idAjuda, int nota) {
@@ -151,6 +152,7 @@ public class Sistema {
 
     /**
      * Recupera a nota do tutor.
+     * 
      * @param matriculaTutor matrícula do tutor.
      * @return a nota do tutor.
      */
@@ -160,6 +162,7 @@ public class Sistema {
 
     /**
      * Retorna o nível do tutor. Pode ser "TOP", "Tutor" ou "Aprendiz".
+     * 
      * @param matriculaTutor matrícula do tutor.
      * @return o nível do tutor, estabelecido conforme a nota do mesmo.
      */	
@@ -191,7 +194,24 @@ public class Sistema {
      * @return o id do pedido de ajuda
      */
 	public int pedirAjudaPresencial(String matriculaAluno, String disciplina, String horario, String dia, String localInteresse) {
+		if (matriculaAluno.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no pedido de ajuda presencial: matricula de aluno nao pode ser vazio ou em branco");
+		}
+		if (disciplina.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no pedido de ajuda presencial: disciplina nao pode ser vazio ou em branco");
+		}
+		if (horario.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no pedido de ajuda presencial: horario nao pode ser vazio ou em branco");
+		}
+		if (dia.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no pedido de ajuda presencial: dia nao pode ser vazio ou em branco");
+		}
+		if (localInteresse.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no pedido de ajuda presencial: local de interesse nao pode ser vazio ou em branco");
+		}
+		
 		String matriculaTutor = getMelhorTutorDisponivel(disciplina);
+		
 		return this.controleAjudas.pedirAjudaPresencial(matriculaAluno, matriculaTutor, disciplina, horario, dia, localInteresse);
 	}
 	
@@ -204,7 +224,14 @@ public class Sistema {
      * @return o id do pedido de ajuda
      */
     public int pedirAjudaOnline (String matriculaAluno, String disciplina) {
+		if (matriculaAluno.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no pedido de ajuda online: matricula de aluno nao pode ser vazio ou em branco");
+		}
+		if (disciplina.trim().equals("")) {
+			throw new IllegalArgumentException("Erro no pedido de ajuda online: disciplina nao pode ser vazio ou em branco");
+		}
     	String matriculaTutor = getMelhorTutorDisponivel(disciplina);
+    	
     	return this.controleAjudas.pedirAjudaOnline(matriculaAluno, matriculaTutor, disciplina);
     }
     
@@ -229,7 +256,8 @@ public class Sistema {
      * @param atributo o atributo que se deseja recuperar
      * @return o valor do atributo desejado
      */
-	public String getInfoAjuda(int idAjuda, String atributo) {
+	public String getInfoAjuda(int idAjuda, String atributo) { 		
 		return this.controleAjudas.getInfoAjuda(idAjuda, atributo);
 	}
+	
 }
