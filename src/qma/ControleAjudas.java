@@ -37,7 +37,7 @@ public class ControleAjudas {
 	}
 	
 	public String getInfoAjuda(int idAjuda, String atributo) {
-		return this.conjuntoAjudas.get(idAjuda).getInfoAjuda(idAjuda, atributo);
+		return this.conjuntoAjudas.get(idAjuda).getInfoAjuda(atributo);
 	}
 
 	public String avaliarTutor(int idAjuda, int nota) {
