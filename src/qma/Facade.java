@@ -215,8 +215,7 @@ public class Facade {
      * especificada, bem como a disciplina que o mesmo tem prodificiencia
      */
     public String pegarTutor(int idAjuda) {
-    	// incompleto
-    	return null;
+    	return this.sistema.pegarTutor(idAjuda);
     }
     
     /**
@@ -228,8 +227,7 @@ public class Facade {
      * @return o valor do atributo desejado
      */
     public String getInfoAjuda(int idAjuda, String atributo) {
-    	// incompleto
-    	return null;
+    	return this.sistema.getInfoAjuda(idAjuda, atributo);
     }
     
     /**

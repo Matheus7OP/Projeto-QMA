@@ -12,7 +12,7 @@ public class AlunoTest {
 	
 	@Before
 	public void inicializar() {
-		this.alunoSimples = new Aluno("Matheus", "77177", 7, "991161150", "theuso@bol.com.br");
+		this.alunoSimples = new Aluno("Matheus", "77177", 7, "991161150", "theuso@bol.com.br", 0);
 	}
 	
 	@Test
@@ -79,28 +79,28 @@ public class AlunoTest {
 	
 	@Test(expected=NullPointerException.class)
 	public void nomeNuloTest() {
-		Aluno aluno = new Aluno( null, "1234", 7, "134134", "email@email.com" );
+		Aluno aluno = new Aluno( null, "1234", 7, "134134", "email@email.com", 0 );
 	}
 	
 	@Test(expected=NullPointerException.class)
 	public void matriculaNulaTest() {
-		Aluno aluno = new Aluno( "Nome", null, 7, "134134", "email@email.com" );
+		Aluno aluno = new Aluno( "Nome", null, 7, "134134", "email@email.com", 0 );
 	}
 	
 	@Test(expected=NullPointerException.class)
 	public void telefoneNuloTest() {
-		Aluno aluno = new Aluno( "Nome", "12344", 7, null, "email@email.com" );
+		Aluno aluno = new Aluno( "Nome", "12344", 7, null, "email@email.com", 0 );
 	}
 	
 	@Test(expected=NullPointerException.class)
 	public void emailNuloTest() {
-		Aluno aluno = new Aluno( "Nome", "12344", 7, "1341243", null);
+		Aluno aluno = new Aluno( "Nome", "12344", 7, "1341243", null, 0 );
 	}
 	
 	@Test
 	public void equalsTest() {
-		Aluno aluno = new Aluno("Matheus", "77177", 7, "991161150", "theuso@bol.com.br");
-		Aluno aluno2 = new Aluno("Matheus", "123", 7, "991161150", "theuso@bol.com.br");
+		Aluno aluno = new Aluno("Matheus", "77177", 7, "991161150", "theuso@bol.com.br", 0);
+		Aluno aluno2 = new Aluno("Matheus", "123", 7, "991161150", "theuso@bol.com.br", 0);
 		
 		assertTrue( this.alunoSimples.equals(aluno) );
 		assertFalse( this.alunoSimples.equals(aluno2) );

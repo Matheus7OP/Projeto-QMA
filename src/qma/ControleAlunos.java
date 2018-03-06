@@ -268,6 +268,6 @@ public class ControleAlunos {
 			throw new IllegalArgumentException("Não existe tutor disponível");
 		}
 		
-		return melhorTutor.getInfoAluno("matricula");
+		return melhorTutor.getInfoAluno("Matricula");
 	}
 }

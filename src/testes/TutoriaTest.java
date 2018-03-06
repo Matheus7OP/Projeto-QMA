@@ -17,9 +17,9 @@ public class TutoriaTest {
 	
 	@Test
 	public void cadastrarDisciplinaTest() {
-		assertFalse( this.tutoriaSimples.possuiDisciplina() );
+		assertFalse( this.tutoriaSimples.possuiAlgumaDisciplina() );
 		this.tutoriaSimples.cadastrarDisciplina("AA", 1);
-		assertTrue( this.tutoriaSimples.possuiDisciplina() );
+		assertTrue( this.tutoriaSimples.possuiAlgumaDisciplina() );
 	}
 	
 	@Test

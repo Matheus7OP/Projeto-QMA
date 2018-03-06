@@ -203,8 +203,33 @@ public class Sistema {
      * @param disciplina a disciplina que o aluno precisa ser ajudado
      * @return o id do pedido de ajuda
      */
-    public int pedirAjudaOnline (String matrAluno, String disciplina) {
-    	// incompleto
-    	return 0;
+    public int pedirAjudaOnline (String matriculaAluno, String disciplina) {
+    	String matriculaTutor = getMelhorTutorDisponivel(disciplina);
+    	return this.controleAjudas.pedirAjudaOnline(matriculaAluno, matriculaTutor, disciplina);
     }
+    
+    /**
+     * Método utilizado para recuperar o tutor
+     * que está associado ao pedido de ajuda
+     * designado na chamada.
+     * 
+     * @param idAjuda o id da ajuda
+     * @return a matricula do tutor que está encarregado da ajuda
+     * especificada, bem como a disciplina que o mesmo tem prodificiencia
+     */
+	public String pegarTutor(int idAjuda) {
+		return this.controleAjudas.pegarTutor(idAjuda);
+	}
+	
+	/**
+     * Método utilizado para recuperar alguma
+     * informação específica da ajuda solicitada.
+     * 
+     * @param idAjuda o id da ajuda solicitada
+     * @param atributo o atributo que se deseja recuperar
+     * @return o valor do atributo desejado
+     */
+	public String getInfoAjuda(int idAjuda, String atributo) {
+		return this.controleAjudas.getInfoAjuda(idAjuda, atributo);
+	}
 }
