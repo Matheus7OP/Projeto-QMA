@@ -145,7 +145,7 @@ public class Sistema {
      * @return o novo nível do tutor.
      */
 	public void avaliarTutor(int idAjuda, int nota) {
-		String matriculaTutor = this.controleAjudas.pegarTutor(idAjuda);
+		String matriculaTutor = this.controleAjudas.getMatriculaTutor(idAjuda);
 		
 		this.controleAlunos.avaliarTutor(matriculaTutor, nota);
 	}

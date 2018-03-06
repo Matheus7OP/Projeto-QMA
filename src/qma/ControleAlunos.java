@@ -51,11 +51,10 @@ public class ControleAlunos {
 	 * @return o objeto aluno que possui valor desejado para o atributo designado
 	 */
 	private Aluno getAluno(String desejado, String atributo, String mensagemErro) {
-		int quantidadeAlunos = this.getQuantidadeAlunos();
-		
-		for(int i = 0; i < quantidadeAlunos; i++) {
-			if( this.conjuntoAlunos.get(i).getInfoAluno(atributo).equals(desejado) ) {
-				return this.conjuntoAlunos.get(i);
+
+		for (Aluno aluno : this.conjuntoAlunos) {
+			if( aluno.getInfoAluno(atributo).equals(desejado) ) {
+				return aluno;
 			}
 		}
 		
