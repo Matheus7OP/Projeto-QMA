@@ -25,6 +25,10 @@ public abstract class Ajuda {
 		this.disciplina = disciplina;
 	}
 	
+	public String getMatriculaTutor() {
+		return this.matriculaTutor;
+	}
+	
 	/**
 	 * Método utilizado para recuperar alguma informação
 	 * específica a respeito da ajuda
@@ -50,7 +54,5 @@ public abstract class Ajuda {
 	 * 
 	 * @return a matricula do tutor associado
 	 */
-	public String pegarTutor() {
-		return this.matriculaTutor;
-	}
+	public abstract String pegarTutor();
 }
