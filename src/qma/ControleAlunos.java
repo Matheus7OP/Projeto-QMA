@@ -216,6 +216,7 @@ public class ControleAlunos {
 	 * @return o atributo requisitado de aluno
 	 */
 	public String getInfoAluno(String matricula, String atributo) {
+		
 		return this.getAluno(matricula, "Matricula", "Erro na obtencao de informacao de aluno: Aluno nao encontrado").getInfoAluno(atributo);
 	}
 
@@ -238,16 +239,36 @@ public class ControleAlunos {
 		return listaAlunos;
 	}
 
+	/**
+	 * Recupera a nota de um tutor.
+	 * 
+	 * @param matriculaTutor matrícula do tutor.
+	 * @return string formatada com duas casas decimais: a nota do tutor.
+	 */
 	public String pegarNota(String matriculaTutor) {
 		return this.getAluno(matriculaTutor, "Matricula", "Erro no pegar nível: Tutor não encontrado").pegarNota();
 	}
 
+    /**
+     * Retorna o nível do tutor. Pode ser "TOP", "Tutor" ou "Aprendiz".
+     * 
+     * @param matriculaTutor matrícula do tutor.
+     * @return o nível do tutor, estabelecido conforme a nota do mesmo.
+     */	
 	public String pegarNivel(String matriculaTutor) {
-		return this.getAluno(matriculaTutor, "Matricula", "Erro no pegar nível: Tutor não encontrado").pegarNivel(); 
+		return this.getAluno(matriculaTutor, "Matricula", "Erro no pegar nivel: Tutor nao encontrado.").pegarNivel(); 
 	}
 
+	/**
+     * Adiciona uma nota ao tutor designado para determinada ajuda.
+     * 
+     * @param idAjuda id da ajuda.
+     * @param nota nota de 0 a 5 dada ao tutor.
+     */
 	public void avaliarTutor(String matriculaTutor, int nota) {
-		return;
+		int idTutor = this.getAluno(matriculaTutor, "Matricula", "Erro no avaliar tutor: Tutor  nao cadastrado.").getId();
+		
+		this.conjuntoAlunos.get(idTutor).avaliarTutor(nota);
 	}
 
 	/**

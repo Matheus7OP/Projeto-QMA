@@ -129,10 +129,19 @@ public class Tutoria {
 		return nivel;
 	}
 
+	/**
+	 * Avalia um tutor através da fórmula: pontuação_final = (pontuação_inicial*5 + pontuação_recebida) / 6.
+	 * 
+	 * @param nota pontuação recebida pela tutoria.
+	 */
 	public void avaliarTutor(int nota) {
 		this.nota = (this.nota * 5 + nota) / 6;
 	}
 
+	/**
+	 * Recupera a nota desse tutor.
+	 * @return nota da tutoria.
+	 */
 	public double getNota() {
 		return this.nota;
 	}
