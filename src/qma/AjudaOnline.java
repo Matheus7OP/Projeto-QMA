@@ -28,4 +28,10 @@ public class AjudaOnline extends Ajuda{
 				throw new IllegalArgumentException("Atributo inexistente!");
 		}
 	}
+
+	@Override
+	public String pegarTutor() {
+		String info = String.format("Tutor - %s, disciplina - %s", this.getMatriculaTutor(), this.getDisciplina());
+		return info;
+	}
 }

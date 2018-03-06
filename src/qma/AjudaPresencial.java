@@ -37,10 +37,17 @@ public class AjudaPresencial extends Ajuda {
 				return this.horario;
 			case "dia":
 				return this.dia;
-			case "local":
+			case "localInteresse":
 				return this.localInteresse;
 			default:
 				throw new IllegalArgumentException("Atributo inexistente!");
 		}
+	}
+
+	@Override
+	public String pegarTutor() {
+		String info = String.format("Tutor - %s, horario - %s, dia - %s, local - %s, disciplina - %s", 
+		this.getMatriculaTutor(), this.getInfoAjuda("horario"), this.getInfoAjuda("dia"), this.getInfoAjuda("localInteresse"), this.getDisciplina());
+		return info;
 	}
 }
