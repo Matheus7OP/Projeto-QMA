@@ -314,7 +314,7 @@ public class ControleAlunos {
 	}
 
 	public double taxaTutor(String matriculaTutor) {
-		Aluno tutor = this.getAluno(matriculaTutor, "Matricula", "Mensagem Padrão");
+		Aluno tutor = this.getAluno(matriculaTutor, "Matricula", "Erro na doacao para tutor: Tutor nao encontrado");
 		double taxaTutor, adicional;
 		
 		String classificacaoTutor;
@@ -350,13 +350,31 @@ public class ControleAlunos {
 		
 		return taxaTutor;
 	}
-
+	
+	/**
+     * Método utilizado para doar quantias em
+     * dinheiro para o tutor especificado.
+     * 
+     * @param matriculaTutor a matricula do tutor que se deseja doar
+     * @param dinheiro o total de dinheiro (em centavos) que se deseja doar ao tutor
+     */
 	public void doarAoTutor(String matriculaTutor, int dinheiro) {
-		int idAluno = this.getAluno(matriculaTutor, "Matricula", "Mensagem de erro Padrão").getId();
+		int idAluno = this.getAluno(matriculaTutor, "Matricula", "Erro na doacao para tutor: Tutor nao encontrado").getId();
 		this.conjuntoAlunos.get(idAluno).receberDoacaoTutoria(dinheiro);
 	}
 
+
+	/**
+     * Retorna a quantidade de dinheiro que o tutor
+     * ganhou do sistema até o momento
+     * 
+     * @param emailTutor o email do tutor que deseja-se verificar
+     * @return a quantia em dinheiro que ele ganhou até o momento
+     */
 	public int totalDinheiroTutor(String emailTutor) {
-		return this.getAluno(emailTutor, "Email", "Mensagem Padrão").getDinheiroTutoria();
+		if (emailTutor.trim().equals("")) {
+			throw new IllegalArgumentException("Erro na consulta de total de dinheiro do tutor: emailTutor nao pode ser vazio ou nulo");
+		}
+		return this.getAluno(emailTutor, "Email", "Erro na consulta de total de dinheiro do tutor: Tutor nao encontrado").getDinheiroTutoria();
 	}
 }

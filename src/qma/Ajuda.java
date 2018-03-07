@@ -58,11 +58,19 @@ public abstract class Ajuda {
 	 */
 	public abstract String pegarTutor();
 
+	/**
+	 * Método utilizado apra verificação se essa tutoria já foi avaliada.
+	 * @return true, se foi avaliada.
+	 */
 	public boolean getFoiAvaliada() {
 		return this.foiAvaliada;
 	}
 
-	public void avaliar() {
+	/**
+	 * Método que determina como true o atributo que indica se essa
+	 * tutoria foi avaliada ou não.
+	 */
+	public void confirmarAvaliacao() {
 		this.foiAvaliada = true;
 	}
 }

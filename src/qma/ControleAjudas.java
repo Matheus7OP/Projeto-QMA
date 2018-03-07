@@ -33,6 +33,15 @@ public class ControleAjudas {
 		return (this.getQuantidadeAjudas());
 	}
 	
+    /**
+     * Método utilizado para recuperar o tutor
+     * que está associado ao pedido de ajuda
+     * designado na chamada.
+     * 
+     * @param idAjuda o id da ajuda
+     * @return a matricula do tutor que está encarregado da ajuda
+     * especificada, bem como a disciplina que o mesmo tem prodificiencia
+     */
 	public String pegarTutor(int idAjuda) {
 		this.validarIdAjuda(idAjuda, "Erro ao tentar recuperar tutor ");
 		return this.conjuntoAjudas.get(idAjuda - 1).pegarTutor();
@@ -43,6 +52,14 @@ public class ControleAjudas {
 		return this.conjuntoAjudas.get(idAjuda - 1).getMatriculaTutor();
 	}
 	
+    /**
+     * Método utilizado para recuperar alguma
+     * informação específica da ajuda solicitada.
+     * 
+     * @param idAjuda o id da ajuda solicitada
+     * @param atributo o atributo que se deseja recuperar
+     * @return o valor do atributo desejado
+     */
 	public String getInfoAjuda(int idAjuda, String atributo) {		
 		this.validarIdAjuda(idAjuda, "Erro ao tentar recuperar info da ajuda ");
 		if (atributo.trim().equals("")) {
@@ -65,7 +82,7 @@ public class ControleAjudas {
 	}
 
 	public void avaliar(int idAjuda) {
-		this.conjuntoAjudas.get(idAjuda - 1).avaliar();
+		this.conjuntoAjudas.get(idAjuda - 1).confirmarAvaliacao();
 	}
 	
 }
