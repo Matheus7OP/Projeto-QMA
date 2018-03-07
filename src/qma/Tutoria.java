@@ -146,6 +146,13 @@ public class Tutoria {
 		return this.nota;
 	}
 
+
+	/**
+     * Método utilizado para doar quantias em
+     * dinheiro para o tutor.
+     * 
+     * @param dinheiro o total de dinheiro (em centavos) que se deseja doar ao tutor
+     */
 	public void receberDoacao(int dinheiro) {
 		if( dinheiro < 0 ) {
 			throw new IllegalArgumentException("A quantia em dinheiro não pode ser negativa!");
@@ -154,6 +161,13 @@ public class Tutoria {
 		this.dinheiro += dinheiro;
 	}
 	
+
+	/**
+     * Retorna a quantidade de dinheiro que o tutor
+     * ganhou do sistema até o momento
+     * 
+     * @return a quantia em dinheiro que o tutor possui
+     */
 	public int getDinheiro() {
 		return this.dinheiro;
 	}

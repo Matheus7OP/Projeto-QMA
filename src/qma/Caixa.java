@@ -24,10 +24,6 @@ public class Caixa {
 	 * @param quantidade a quantidade de dinheiro a ser adicionada
 	 */
 	public void adicionarDinheiro(int quantidade) {
-		if( quantidade < 0 ) {
-			throw new IllegalArgumentException("A quantidade de dinheiro depositada não pode ser negativa!");
-		}
-		
 		this.dinheiro += quantidade;
 	}
 	

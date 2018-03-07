@@ -202,10 +202,22 @@ public class Aluno implements Comparable {
 		return String.format("%.2f", this.tutoria.getNota());
 	}
 	
+	/**
+     * Método utilizado para doar quantias em
+     * dinheiro para o tutor especificado.
+     * 
+     * @param dinheiro o total de dinheiro (em centavos) que se deseja doar ao tutor
+     */
 	public void receberDoacaoTutoria(int dinheiro) {
 		this.tutoria.receberDoacao(dinheiro);
 	}
 	
+	/**
+     * Retorna a quantidade de dinheiro que o tutor
+     * ganhou do sistema até o momento
+     * 
+     * @return a quantia em dinheiro que ele ganhou até o momento
+     */
 	public int getDinheiroTutoria() {
 		return this.tutoria.getDinheiro();
 	}

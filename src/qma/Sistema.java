@@ -296,11 +296,15 @@ public class Sistema {
      * @param totalCentavos o total de dinheiro (em centavos) que se deseja doar ao tutor
      */
 	public void doar(String matriculaTutor, int totalCentavos) {
+		if (totalCentavos < 0) {
+			throw new IllegalArgumentException("Erro na doacao para tutor: totalCentavos nao pode ser menor que zero");
+		}
 		double taxaTutor = this.controleAlunos.taxaTutor(matriculaTutor), parteDoSistema;
 
 		parteDoSistema = (1 - taxaTutor) * totalCentavos;
-		System.out.println("Taxa tutor: " + taxaTutor + " parteDoSistema: " + parteDoSistema);
+		System.out.println("Matrícula: " + matriculaTutor + " Taxa tutor: " + taxaTutor + " parteDoSistema: " + parteDoSistema);
 		parteDoSistema = Math.ceil(parteDoSistema);
+		
 		
 		this.caixa.adicionarDinheiro( ((int) parteDoSistema) );
 		this.controleAlunos.doarAoTutor(matriculaTutor, totalCentavos - ((int) parteDoSistema));
