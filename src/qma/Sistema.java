@@ -10,6 +10,7 @@ package qma;
 public class Sistema {
 	private ControleAlunos controleAlunos;
 	private ControleAjudas controleAjudas;
+	private Caixa caixa;
 	
 	/**
 	 * Construtor do objeto Sistema.
@@ -17,6 +18,7 @@ public class Sistema {
 	public Sistema() {
 		this.controleAlunos = new ControleAlunos();
 		this.controleAjudas = new ControleAjudas();
+		this.caixa = new Caixa();
 	}
 	
 	/**
@@ -273,4 +275,44 @@ public class Sistema {
 		return this.controleAjudas.getInfoAjuda(idAjuda, atributo);
 	}
 	
+	/**
+     * Retorna a quantidade de dinheiro que o tutor
+     * ganhou do sistema até o momento
+     * 
+     * @param emailTutor o email do tutor que deseja-se verificar
+     * @return a quantia em dinheiro que ele ganhou até o momento
+     */
+	public int totalDinheiroTutor() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	/**
+     * Método utilizado para doar quantias em
+     * dinheiro para o tutor especificado. Dessa quantia,
+     * uma certa taxa é retirada para o sistema, dependendo
+     * da avaliação atual do tutor.
+     * 
+     * @param matriculaTutor a matricula do tutor que se deseja doar
+     * @param totalCentavos o total de dinheiro (em centavos) que se deseja doar ao tutor
+     */
+	public void doar(String matriculaTutor, int totalCentavos) {
+		double taxaTutor = this.controleAlunos.taxaTutor(matriculaTutor), parteDoSistema;
+		
+		parteDoSistema = (1.0 - taxaTutor) * ((double) totalCentavos);
+		parteDoSistema = Math.floor(parteDoSistema);
+		
+		this.caixa.adicionarDinheiro( ((int) parteDoSistema) );
+		this.controleAlunos.doarAoTutor(matriculaTutor, totalCentavos - ((int) parteDoSistema));
+	}
+	
+	/**
+     * Retorna a quantidade total de dinheiro
+     * presente em sistema.
+     * 
+     * @return quantidade de dinheiro em sistema
+     */
+	public int totalDinheiroSistema() {
+		return this.caixa.getDinheiro();
+	}
 }

@@ -201,6 +201,10 @@ public class Aluno implements Comparable {
 		}
 		return String.format("%.2f", this.tutoria.getNota());
 	}
+	
+	public void receberDoacaoTutoria(int dinheiro) {
+		this.tutoria.receberDoacao(dinheiro);
+	}
 		
 	@Override
 	public int hashCode() {

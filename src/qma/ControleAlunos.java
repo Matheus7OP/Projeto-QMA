@@ -312,4 +312,31 @@ public class ControleAlunos {
 		
 		return melhorTutor.getInfoAluno("Matricula");
 	}
+
+	public double taxaTutor(String matriculaTutor) {
+		Aluno tutor = this.getAluno(matriculaTutor, "Matricula", "Mensagem Padrão");
+		double taxaTutor;
+		
+		String classificacaoTutor;
+		classificacaoTutor = tutor.pegarNivel();
+		
+		if( classificacaoTutor.equals("TOP") ) {
+			taxaTutor = 0.9 + (tutor.getNotaTutoria() - 4.0);
+		}
+		else {
+			if( classificacaoTutor.equals("Tutor") ) {
+				taxaTutor = 0.8;
+			}
+			else {
+				taxaTutor = 0.4 - (3.0 - tutor.getNotaTutoria());
+			}
+		}
+		
+		return taxaTutor;
+	}
+
+	public void doarAoTutor(String matriculaTutor, int dinheiro) {
+		int idAluno = this.getAluno(matriculaTutor, "Matricula", "Mensagem de erro Padrão").getId();
+		this.conjuntoAlunos.get(idAluno).receberDoacaoTutoria(dinheiro);
+	}
 }
