@@ -147,4 +147,12 @@ public class Tutoria {
 //		System.out.println("Recupera nota = " + this.nota);
 		return this.nota;
 	}
+
+	public void receberDoacao(int dinheiro) {
+		if( dinheiro < 0 ) {
+			throw new IllegalArgumentException("A quantia em dinheiro não pode ser negativa!");
+		}
+		
+		this.dinheiro += dinheiro;
+	}
 }

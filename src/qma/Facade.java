@@ -240,6 +240,27 @@ public class Facade {
      * @param totalCentavos o total de dinheiro (em centavos) que se deseja doar ao tutor
      */
     public void doar(String matriculaTutor, int totalCentavos) {
-    	// incompleto
+    	this.sistema.doar(matriculaTutor, totalCentavos);
+    }
+    
+    /**
+     * Retorna a quantidade de dinheiro que o tutor
+     * ganhou do sistema até o momento
+     * 
+     * @param emailTutor o email do tutor que deseja-se verificar
+     * @return a quantia em dinheiro que ele ganhou até o momento
+     */
+    public int totalDinheiroTutor(String emailTutor) {
+    	return this.sistema.totalDinheiroTutor();
+    }
+    
+    /**
+     * Retorna a quantidade total de dinheiro
+     * presente em sistema.
+     * 
+     * @return quantidade de dinheiro em sistema
+     */
+    public int totalDinheiroSistema() {
+    	return this.sistema.totalDinheiroSistema();
     }
 }
