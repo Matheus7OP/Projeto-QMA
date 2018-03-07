@@ -282,9 +282,8 @@ public class Sistema {
      * @param emailTutor o email do tutor que deseja-se verificar
      * @return a quantia em dinheiro que ele ganhou até o momento
      */
-	public int totalDinheiroTutor() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int totalDinheiroTutor(String emailTutor) {
+		return this.controleAlunos.totalDinheiroTutor(emailTutor);
 	}
 	
 	/**
@@ -298,9 +297,10 @@ public class Sistema {
      */
 	public void doar(String matriculaTutor, int totalCentavos) {
 		double taxaTutor = this.controleAlunos.taxaTutor(matriculaTutor), parteDoSistema;
-		
-		parteDoSistema = (1.0 - taxaTutor) * ((double) totalCentavos);
-		parteDoSistema = Math.floor(parteDoSistema);
+
+		parteDoSistema = (1 - taxaTutor) * totalCentavos;
+		System.out.println("Taxa tutor: " + taxaTutor + " parteDoSistema: " + parteDoSistema);
+		parteDoSistema = Math.ceil(parteDoSistema);
 		
 		this.caixa.adicionarDinheiro( ((int) parteDoSistema) );
 		this.controleAlunos.doarAoTutor(matriculaTutor, totalCentavos - ((int) parteDoSistema));

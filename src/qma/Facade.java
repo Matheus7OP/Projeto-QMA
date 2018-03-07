@@ -251,7 +251,7 @@ public class Facade {
      * @return a quantia em dinheiro que ele ganhou até o momento
      */
     public int totalDinheiroTutor(String emailTutor) {
-    	return this.sistema.totalDinheiroTutor();
+    	return this.sistema.totalDinheiroTutor(emailTutor);
     }
     
     /**

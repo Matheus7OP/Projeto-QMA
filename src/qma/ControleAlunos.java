@@ -315,20 +315,36 @@ public class ControleAlunos {
 
 	public double taxaTutor(String matriculaTutor) {
 		Aluno tutor = this.getAluno(matriculaTutor, "Matricula", "Mensagem Padrão");
-		double taxaTutor;
+		double taxaTutor, adicional;
 		
 		String classificacaoTutor;
 		classificacaoTutor = tutor.pegarNivel();
 		
 		if( classificacaoTutor.equals("TOP") ) {
-			taxaTutor = 0.9 + (tutor.getNotaTutoria() - 4.0);
+			adicional = (tutor.getNotaTutoria() - 4.5);
+			adicional *= 10.0;
+			
+			adicional = Math.floor(adicional);
+			adicional /= 10.0;
+			
+			System.out.println("adicional(TOP): " + adicional);
+			
+			taxaTutor = 0.9 + adicional;
 		}
 		else {
 			if( classificacaoTutor.equals("Tutor") ) {
 				taxaTutor = 0.8;
 			}
 			else {
-				taxaTutor = 0.4 - (3.0 - tutor.getNotaTutoria());
+				adicional = (3.0 - tutor.getNotaTutoria());
+				adicional *= 10.0;
+			
+				adicional = Math.floor(adicional);
+				adicional /= 10.0;
+				
+				System.out.println("adicional(APRENDIZ): " + adicional);
+				
+				taxaTutor = 0.4 - adicional;
 			}
 		}
 		
@@ -338,5 +354,9 @@ public class ControleAlunos {
 	public void doarAoTutor(String matriculaTutor, int dinheiro) {
 		int idAluno = this.getAluno(matriculaTutor, "Matricula", "Mensagem de erro Padrão").getId();
 		this.conjuntoAlunos.get(idAluno).receberDoacaoTutoria(dinheiro);
+	}
+
+	public int totalDinheiroTutor(String emailTutor) {
+		return this.getAluno(emailTutor, "Email", "Mensagem Padrão").getDinheiroTutoria();
 	}
 }
