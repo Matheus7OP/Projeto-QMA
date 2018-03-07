@@ -11,6 +11,7 @@
 public abstract class Ajuda {
 	private String matriculaAluno, matriculaTutor;
 	private String disciplina;
+	private boolean foiAvaliada;
 	
 	/**
 	 * Construtor do objeto Ajuda.
@@ -23,6 +24,7 @@ public abstract class Ajuda {
 		this.matriculaAluno = matriculaAluno;
 		this.matriculaTutor = matriculaTutor;
 		this.disciplina = disciplina;
+		this.foiAvaliada = false;
 	}
 	
 	public String getMatriculaTutor() {
@@ -55,4 +57,12 @@ public abstract class Ajuda {
 	 * @return a matricula do tutor associado
 	 */
 	public abstract String pegarTutor();
+
+	public boolean getFoiAvaliada() {
+		return this.foiAvaliada;
+	}
+
+	public void avaliar() {
+		this.foiAvaliada = true;
+	}
 }

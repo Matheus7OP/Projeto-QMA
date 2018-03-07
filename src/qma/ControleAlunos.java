@@ -225,14 +225,16 @@ public class ControleAlunos {
      * @return toString de todos os alunos, separados por vírgula.
      */
 	public String listarAlunos() {
-		this.conjuntoAlunos.sort(null);
+		ArrayList <Aluno> listaOrdenada = new ArrayList <Aluno> (this.conjuntoAlunos); 
+		
+		listaOrdenada.sort(null);
 		
 		String listaAlunos = "";		
 		int quantidadeAlunos = this.getQuantidadeAlunos();
 		
 		for(int i = 0; i < quantidadeAlunos; i++) {
 			if (i > 0) listaAlunos += ", ";
-			listaAlunos += this.conjuntoAlunos.get(i).toString();
+			listaAlunos += listaOrdenada.get(i).toString();
 		}
 		
 		return listaAlunos;
@@ -245,7 +247,7 @@ public class ControleAlunos {
 	 * @return string formatada com duas casas decimais: a nota do tutor.
 	 */
 	public String pegarNota(String matriculaTutor) {
-		return this.getAluno(matriculaTutor, "Matricula", "Erro no pegar nível: Tutor não encontrado").pegarNota();
+		return this.getAluno(matriculaTutor, "Matricula", "Erro no pegar nivel: Tutor nao encontrado").pegarNota();
 	}
 
     /**
@@ -265,7 +267,7 @@ public class ControleAlunos {
      * @param nota nota de 0 a 5 dada ao tutor.
      */
 	public void avaliarTutor(String matriculaTutor, int nota) {
-		int idTutor = this.getAluno(matriculaTutor, "Matricula", "Erro no avaliar tutor: Tutor  nao cadastrado.").getId();
+		int idTutor = this.getAluno(matriculaTutor, "Matricula", "Erro no avaliar tutor: Tutor nao cadastrado.").getId();
 		
 		this.conjuntoAlunos.get(idTutor).avaliarTutor(nota);
 	}
