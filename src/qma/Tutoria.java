@@ -153,4 +153,8 @@ public class Tutoria {
 		
 		this.dinheiro += dinheiro;
 	}
+	
+	public int getDinheiro() {
+		return this.dinheiro;
+	}
 }

@@ -205,6 +205,10 @@ public class Aluno implements Comparable {
 	public void receberDoacaoTutoria(int dinheiro) {
 		this.tutoria.receberDoacao(dinheiro);
 	}
+	
+	public int getDinheiroTutoria() {
+		return this.tutoria.getDinheiro();
+	}
 		
 	@Override
 	public int hashCode() {
