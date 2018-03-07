@@ -199,7 +199,6 @@ public class Aluno implements Comparable {
 		if (!this.possuiTutoria()) {
 			throw new IllegalAccessError("Erro no pegar nota: Aluno não é tutor");
 		}
-
 		return String.format("%.2f", this.tutoria.getNota());
 	}
 		

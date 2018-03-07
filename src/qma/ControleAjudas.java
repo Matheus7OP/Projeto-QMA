@@ -34,31 +34,38 @@ public class ControleAjudas {
 	}
 	
 	public String pegarTutor(int idAjuda) {
-		if (idAjuda < 0) {
-			throw new IllegalArgumentException("Erro ao tentar recuperar tutor : id nao pode menor que zero ");
-		}
-		if (idAjuda > this.getQuantidadeAjudas()) {
-			throw new IllegalArgumentException("Erro ao tentar recuperar tutor : id nao encontrado ");
-		}
+		this.validarIdAjuda(idAjuda, "Erro ao tentar recuperar tutor ");
 		return this.conjuntoAjudas.get(idAjuda - 1).pegarTutor();
 	}
 	
 	public String getMatriculaTutor(int idAjuda) {
+		this.validarIdAjuda(idAjuda, "Erro na avaliacao de tutor");
 		return this.conjuntoAjudas.get(idAjuda - 1).getMatriculaTutor();
 	}
 	
-	public String getInfoAjuda(int idAjuda, String atributo) {
-		if (idAjuda < 0) {
-			throw new IllegalArgumentException("Erro ao tentar recuperar info da ajuda : id nao pode menor que zero ");
-		}
-		if (idAjuda > this.getQuantidadeAjudas()) {
-			throw new IllegalArgumentException("Erro ao tentar recuperar info da ajuda : id nao encontrado ");
-		}
+	public String getInfoAjuda(int idAjuda, String atributo) {		
+		this.validarIdAjuda(idAjuda, "Erro ao tentar recuperar info da ajuda ");
 		if (atributo.trim().equals("")) {
 			throw new IllegalArgumentException("Erro ao tentar recuperar info da ajuda : atributo nao pode ser vazio ou em branco");
 		}
-		
 		return this.conjuntoAjudas.get(idAjuda - 1).getInfoAjuda(atributo);
+	}
+	
+	private void validarIdAjuda(int id, String mensagemErro) {
+		if (id < 0) {
+			throw new IllegalArgumentException(mensagemErro + ": id nao pode menor que zero ");
+		}
+		if (id > this.getQuantidadeAjudas()) {
+			throw new IllegalArgumentException(mensagemErro + ": id nao encontrado ");
+		}
+	}
+
+	public boolean getFoiAvaliada(int idAjuda) {
+		return this.conjuntoAjudas.get(idAjuda - 1).getFoiAvaliada();
+	}
+
+	public void avaliar(int idAjuda) {
+		this.conjuntoAjudas.get(idAjuda - 1).avaliar();
 	}
 	
 }

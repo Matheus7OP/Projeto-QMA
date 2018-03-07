@@ -136,7 +136,6 @@ public class Tutoria {
 	 */
 	public void avaliarTutor(int nota) {
 		this.nota = (this.nota * 5 + nota) / 6;
-//		System.out.println("Nova nota = " + this.nota);
 	}
 
 	/**
@@ -144,7 +143,6 @@ public class Tutoria {
 	 * @return nota da tutoria.
 	 */
 	public double getNota() {
-//		System.out.println("Recupera nota = " + this.nota);
 		return this.nota;
 	}
 }

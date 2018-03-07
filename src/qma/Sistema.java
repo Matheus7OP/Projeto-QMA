@@ -145,9 +145,22 @@ public class Sistema {
      * @return o novo nível do tutor.
      */
 	public void avaliarTutor(int idAjuda, int nota) {
+		if (nota < 0) {
+			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser menor que 0");
+		}
+		if (nota > 5) {
+			throw new IllegalArgumentException("Erro na avaliacao de tutor: nota nao pode ser maior que 5");
+		}
+		
 		String matriculaTutor = this.controleAjudas.getMatriculaTutor(idAjuda);
+
+		if (this.controleAjudas.getFoiAvaliada(idAjuda)) {
+			throw new IllegalArgumentException("Erro na avaliacao de tutor: Ajuda ja avaliada");
+		}		
 		
 		this.controleAlunos.avaliarTutor(matriculaTutor, nota);
+		
+		this.controleAjudas.avaliar(idAjuda);
 	}
 
     /**
