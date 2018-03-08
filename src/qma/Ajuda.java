@@ -27,6 +27,10 @@ public abstract class Ajuda {
 		this.foiAvaliada = false;
 	}
 	
+	/**
+	 * Recupera a matrícula do tutor cadastrado nessa ajuda.
+	 * @return matrícual do tutor cadastrado nessa ajuda.
+	 */
 	public String getMatriculaTutor() {
 		return this.matriculaTutor;
 	}
