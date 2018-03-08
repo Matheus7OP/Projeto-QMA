@@ -315,19 +315,19 @@ public class ControleAlunos {
 
 	public double taxaTutor(String matriculaTutor) {
 		Aluno tutor = this.getAluno(matriculaTutor, "Matricula", "Erro na doacao para tutor: Tutor nao encontrado");
-		double taxaTutor, adicional;
+		double taxaTutor, adicional, notaTutoria;
 		
 		String classificacaoTutor;
 		classificacaoTutor = tutor.pegarNivel();
 		
+		notaTutoria = tutor.getNotaTutoria();
+		
 		if( classificacaoTutor.equals("TOP") ) {
-			adicional = (tutor.getNotaTutoria() - 4.5);
+			adicional = (notaTutoria - 4.5);
 			adicional *= 10.0;
 			
-			adicional = Math.floor(adicional);
+			adicional = Math.round(adicional);
 			adicional /= 10.0;
-			
-			System.out.println("adicional(TOP): " + adicional);
 			
 			taxaTutor = 0.9 + adicional;
 		}
@@ -336,13 +336,8 @@ public class ControleAlunos {
 				taxaTutor = 0.8;
 			}
 			else {
-				adicional = (3.0 - tutor.getNotaTutoria());
-				adicional *= 10.0;
-			
-				adicional = Math.floor(adicional);
-				adicional /= 10.0;
-				
-				System.out.println("adicional(APRENDIZ): " + adicional);
+				adicional = (3.0 - notaTutoria);
+				adicional -= 0.2;
 				
 				taxaTutor = 0.4 - adicional;
 			}

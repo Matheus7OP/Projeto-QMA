@@ -135,7 +135,7 @@ public class Tutoria {
 	 * @param nota pontuação recebida pela tutoria.
 	 */
 	public void avaliarTutor(int nota) {
-		this.nota = (this.nota * 5 + nota) / 6;
+		this.nota = (this.nota * 5.0 + ((double)nota)) / 6.0;
 	}
 
 	/**

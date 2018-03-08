@@ -301,10 +301,8 @@ public class Sistema {
 		}
 		double taxaTutor = this.controleAlunos.taxaTutor(matriculaTutor), parteDoSistema;
 
-		parteDoSistema = (1 - taxaTutor) * totalCentavos;
-		System.out.println("Matrícula: " + matriculaTutor + " Taxa tutor: " + taxaTutor + " parteDoSistema: " + parteDoSistema);
+		parteDoSistema = (1.0 - taxaTutor) * ((double)totalCentavos);
 		parteDoSistema = Math.ceil(parteDoSistema);
-		
 		
 		this.caixa.adicionarDinheiro( ((int) parteDoSistema) );
 		this.controleAlunos.doarAoTutor(matriculaTutor, totalCentavos - ((int) parteDoSistema));
