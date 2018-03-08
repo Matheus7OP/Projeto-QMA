@@ -20,6 +20,7 @@ public class Aluno implements Comparable {
 	 * @param codigoCurso o código do curso que o aluno está
 	 * @param telefone o telefone do aluno
 	 * @param email o email do aluno
+	 * @param id identificador do aluno
 	 */
 	public Aluno(String nome, String matricula, int codigoCurso, String telefone, String email, int id) {
 		if (nome.trim().equals("") || nome == null) {
@@ -198,7 +199,7 @@ public class Aluno implements Comparable {
 	
 	/**
 	 * Recupera a nota de um tutor.
-	 * @param matriculaTutor matrícula do tutor.
+	 * 
 	 * @return string formatada com duas casas decimais: a nota do tutor.
 	 */
 	public String pegarNota() {

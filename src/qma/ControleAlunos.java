@@ -263,7 +263,7 @@ public class ControleAlunos {
 	/**
      * Adiciona uma nota ao tutor designado para determinada ajuda.
      * 
-     * @param idAjuda id da ajuda.
+     * @param matriculaTutor matrícula do tutor.
      * @param nota nota de 0 a 5 dada ao tutor.
      */
 	public void avaliarTutor(String matriculaTutor, int nota) {

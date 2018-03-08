@@ -144,7 +144,6 @@ public class Sistema {
      * 
      * @param idAjuda id da ajuda.
      * @param nota nota de 0 a 5 dada ao tutor.
-     * @return o novo nível do tutor.
      */
 	public void avaliarTutor(int idAjuda, int nota) {
 		if (nota < 0) {
@@ -201,7 +200,7 @@ public class Sistema {
      * Método utilizado para que um aluno cadastre um
      * pedido de ajuda presencial no sistema.
      * 
-     * @param matrAluno a matricula do aluno que precisa de ajuda
+     * @param matriculaAluno a matricula do aluno que precisa de ajuda
      * @param disciplina a disciplina que o aluno precisa ser ajudado
      * @param horario o horario em que o aluno tem interesse em ser atendido
      * @param dia o dia em que o aluno tem interesse em ser atendido
@@ -234,7 +233,7 @@ public class Sistema {
      * Método utilizado para que um aluno cadastre um
      * pedido de ajuda online no sistema.
      * 
-     * @param matrAluno a matricula do aluno que precisa de ajuda
+     * @param matriculaAluno a matricula do aluno que precisa de ajuda
      * @param disciplina a disciplina que o aluno precisa ser ajudado
      * @return o id do pedido de ajuda
      */

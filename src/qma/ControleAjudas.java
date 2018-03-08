@@ -3,6 +3,14 @@ package qma;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller de ajudas armazena, administra e retorna informações
+ * sobre as ajudas cadastradas no sistema.
+ * 
+ * @author Matheus Oliveira Pereira
+ * @author Gabriel Alves Tavares
+ *
+ */
 public class ControleAjudas {
 	private List<Ajuda> conjuntoAjudas;
 	
@@ -41,7 +49,7 @@ public class ControleAjudas {
      * Método utilizado para que um aluno cadastre um
      * pedido de ajuda online no sistema.
      * 
-     * @param matrAluno a matricula do aluno que precisa de ajuda
+     * @param matriculaAluno a matricula do aluno que precisa de ajuda
      * @param matriculaTutor matricula do tutor que ajudará
      * @param disciplina a disciplina que o aluno precisa ser ajudado
      * @return o id do pedido de ajuda
@@ -95,18 +103,11 @@ public class ControleAjudas {
 		}
 		return this.conjuntoAjudas.get(idAjuda - 1).getInfoAjuda(atributo);
 	}
-	
-	private void validarIdAjuda(int id, String mensagemErro) {
-		if (id < 0) {
-			throw new IllegalArgumentException(mensagemErro + ": id nao pode menor que zero ");
-		}
-		if (id > this.getQuantidadeAjudas()) {
-			throw new IllegalArgumentException(mensagemErro + ": id nao encontrado ");
-		}
-	}
 
 	/**
 	 * Método utilizado apra verificação se essa tutoria já foi avaliada.
+	 * 
+	 * @param idAjuda id da ajuda
 	 * @return true, se foi avaliada.
 	 */
 	public boolean getFoiAvaliada(int idAjuda) {
@@ -116,9 +117,20 @@ public class ControleAjudas {
 	/**
 	 * Método que determina como true o atributo que indica se essa
 	 * tutoria foi avaliada ou não.
+	 * 
+	 * @param idAjuda id da ajuda
 	 */
 	public void avaliar(int idAjuda) {
 		this.conjuntoAjudas.get(idAjuda - 1).confirmarAvaliacao();
+	}
+
+	private void validarIdAjuda(int id, String mensagemErro) {
+		if (id < 0) {
+			throw new IllegalArgumentException(mensagemErro + ": id nao pode menor que zero ");
+		}
+		if (id > this.getQuantidadeAjudas()) {
+			throw new IllegalArgumentException(mensagemErro + ": id nao encontrado ");
+		}
 	}
 	
 }
