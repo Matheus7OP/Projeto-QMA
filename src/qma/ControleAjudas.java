@@ -18,6 +18,18 @@ public class ControleAjudas {
 		return this.conjuntoAjudas.size();
 	}
 	
+    /**
+     * Método utilizado para que um aluno cadastre um
+     * pedido de ajuda presencial no sistema.
+     * 
+     * @param matriculaAluno a matricula do aluno que precisa de ajuda
+     * @param matriculaTutor matricula do tutor que ajudará
+     * @param disciplina a disciplina que o aluno precisa ser ajudado
+     * @param horario o horario em que o aluno tem interesse em ser atendido
+     * @param dia o dia em que o aluno tem interesse em ser atendido
+     * @param localInteresse o local que o aluno tem interesse em ser atendido
+     * @return o id do pedido de ajuda
+     */
 	public int pedirAjudaPresencial(String matriculaAluno, String matriculaTutor, String disciplina, String horario, String dia, String localInteresse) {
 		Ajuda novaAjuda = new AjudaPresencial(matriculaAluno, matriculaTutor, disciplina, horario, dia, localInteresse);
 		this.inserirNovaAjuda(novaAjuda);
@@ -25,6 +37,15 @@ public class ControleAjudas {
 		return (this.getQuantidadeAjudas());
 	}
 	
+	/**
+     * Método utilizado para que um aluno cadastre um
+     * pedido de ajuda online no sistema.
+     * 
+     * @param matrAluno a matricula do aluno que precisa de ajuda
+     * @param matriculaTutor matricula do tutor que ajudará
+     * @param disciplina a disciplina que o aluno precisa ser ajudado
+     * @return o id do pedido de ajuda
+     */
 	public int pedirAjudaOnline(String matriculaAluno, String matriculaTutor, String disciplina) {
 		
 		Ajuda novaAjuda = new AjudaOnline(matriculaAluno, matriculaTutor, disciplina);
@@ -47,6 +68,13 @@ public class ControleAjudas {
 		return this.conjuntoAjudas.get(idAjuda - 1).pegarTutor();
 	}
 	
+	/**
+	 * Recupera a matrícula do tutor a partir do id da ajuda
+	 * a qual ele está tutorando.
+	 * 
+	 * @param idAjuda o id da ajuda
+	 * @return matrícula do tutor responsável pela ajuda
+	 */
 	public String getMatriculaTutor(int idAjuda) {
 		this.validarIdAjuda(idAjuda, "Erro na avaliacao de tutor");
 		return this.conjuntoAjudas.get(idAjuda - 1).getMatriculaTutor();
@@ -77,10 +105,18 @@ public class ControleAjudas {
 		}
 	}
 
+	/**
+	 * Método utilizado apra verificação se essa tutoria já foi avaliada.
+	 * @return true, se foi avaliada.
+	 */
 	public boolean getFoiAvaliada(int idAjuda) {
 		return this.conjuntoAjudas.get(idAjuda - 1).getFoiAvaliada();
 	}
 
+	/**
+	 * Método que determina como true o atributo que indica se essa
+	 * tutoria foi avaliada ou não.
+	 */
 	public void avaliar(int idAjuda) {
 		this.conjuntoAjudas.get(idAjuda - 1).confirmarAvaliacao();
 	}

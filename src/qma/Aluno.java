@@ -167,8 +167,14 @@ public class Aluno implements Comparable {
 		return this.tutoria.consultaHorario(horario, dia);
 	}
 	
-	public boolean possuiTutoriaNaDisciplina(String discipĺina) {
-		return this.tutoria.possuiDisciplina(discipĺina);
+	/**
+	 * Consulta se esse aluno possui tutoria em uma determinada disciplina.
+	 * 
+	 * @param disciplina nome da disciplina
+	 * @return true, se o aluno possuir tutoria na disciplina especificada
+	 */
+	public boolean possuiTutoriaNaDisciplina(String disciplina) {
+		return this.tutoria.possuiDisciplina(disciplina);
 	}
 	
     /**
