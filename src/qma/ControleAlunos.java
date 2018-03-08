@@ -313,6 +313,16 @@ public class ControleAlunos {
 		return melhorTutor.getInfoAluno("Matricula");
 	}
 
+	/**
+	 * Calcula a taxa (a porcentagem) que será destinada ao tutor 
+	 * da doação àquela tutoria. O cálculo é baseado no nível do tutor:
+	 * Se "TOP", o total recebido é 90% da doação + 1% por décimo acima de 4.5 (ex.: nota 4.7, ele recebe 92%).
+	 * Se "Tutor", o total recebido é 80% da doação 
+	 * Se "Aprendiz", o total recebido 40% da doação subtraido de 1% por décimo abaixo de 3.0 (exemplo, nota 2 ele recebe 30%) 
+	 * 
+	 * @param matriculaTutor matrícula do tutor
+	 * @return a taxa (a porcentagem) que será destinada ao tutor 
+	 */
 	public double taxaTutor(String matriculaTutor) {
 		Aluno tutor = this.getAluno(matriculaTutor, "Matricula", "Erro na doacao para tutor: Tutor nao encontrado");
 		double taxaTutor, adicional;
