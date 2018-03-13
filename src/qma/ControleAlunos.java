@@ -226,7 +226,7 @@ public class ControleAlunos implements Serializable {
      * @return toString de todos os alunos, separados por vírgula.
      */
 	public String listarAlunos() {
-		ArrayList <Aluno> listaOrdenada = new ArrayList <Aluno> (this.conjuntoAlunos); 
+		ArrayList <Aluno> listaOrdenada = new ArrayList <Aluno> (this.conjuntoAlunos);
 		
 		listaOrdenada.sort(null);
 		
