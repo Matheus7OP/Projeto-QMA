@@ -1,5 +1,7 @@
 package qma;
 
+import java.io.Serializable;
+
 /**
  * Classe que representa um Aluno no sistema,
  * sendo possível adicionar tutorias ao mesmo.
@@ -7,7 +9,7 @@ package qma;
  * @author Matheus Oliveira Pereira
  * @author Gabriel Alves Tavares
  */
-public class Aluno implements Comparable {
+public class Aluno implements Comparable, Serializable{
 	private Tutoria tutoria;
 	private String nome, matricula, telefone, email;
 	private int codigoCurso, nota, id;

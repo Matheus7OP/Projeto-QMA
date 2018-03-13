@@ -1,5 +1,6 @@
 package qma;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @author Gabriel Alves Tavares
  *
  */
-public class ControleAjudas {
+public class ControleAjudas implements Serializable{
 	private List<Ajuda> conjuntoAjudas;
 	
 	public ControleAjudas () {

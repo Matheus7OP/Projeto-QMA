@@ -1,5 +1,6 @@
 package qma;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * @author Matheus Oliveira Pereira
  * @author Gabriel Alves Tavares
  */
-public class ControleAlunos {
+public class ControleAlunos implements Serializable {
 	private List<Aluno> conjuntoAlunos;
 	
 	/**
