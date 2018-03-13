@@ -340,8 +340,6 @@ public class Sistema {
 	
 	/**
 	 * Salva os dados do sistema em um arquivo.
-	 * 
-	 * @throws IOException
 	 */
 	public void salvar() throws IOException {
 		FileOutputStream fos = new FileOutputStream(this.dadosSalvos); 
@@ -361,9 +359,6 @@ public class Sistema {
 	
 	/**
 	 * Carrega os dados salvos anteriormente.
-	 * 
-	 * @throws IOException
-	 * @throws ClassNotFoundException
 	 */
 	public void carregar() throws IOException, ClassNotFoundException {
 		FileInputStream fos = new FileInputStream(this.dadosSalvos); 
@@ -389,8 +384,6 @@ public class Sistema {
 	
 	/**
 	 * Apaga todos os dados salvos anteriormente.
-	 * 
-	 * @throws IOException 
 	 */
 	public void limpar() throws IOException {
 		FileOutputStream fos = new FileOutputStream(this.dadosSalvos); 
