@@ -316,4 +316,14 @@ public class Sistema {
 	public int totalDinheiroSistema() {
 		return this.caixa.getDinheiro();
 	}
+	
+	/**
+     * Método utilizado para configurar a ordem em que os
+     * tutores e alunos são listados.
+     * 
+     * @param atributo o atributo que deve ser levado em conta na ordenação
+     */
+	public void configurarOrdem(String atributo) {
+		this.controleAlunos.configurarOrdem(atributo);
+	}
 }

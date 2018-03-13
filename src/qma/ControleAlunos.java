@@ -382,4 +382,14 @@ public class ControleAlunos {
 		}
 		return this.getAluno(emailTutor, "Email", "Erro na consulta de total de dinheiro do tutor: Tutor nao encontrado").getDinheiroTutoria();
 	}
+	
+	/**
+     * Método utilizado para configurar a ordem em que os
+     * tutores e alunos são listados.
+     * 
+     * @param atributo o atributo que deve ser levado em conta na ordenação
+     */
+	public void configurarOrdem(String atributo) {
+		// INCOMPLETO
+	}
 }
