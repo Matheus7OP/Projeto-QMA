@@ -1,5 +1,6 @@
 package qma;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +16,7 @@ import java.util.Map;
  * @author Matheus Oliveira Pereira
  * @author Gabriel Alves Tavares
  */
-public class Tutoria {
+public class Tutoria implements Serializable{
 	private double nota;
 	private int dinheiro;
 	private Set<String> locaisDeAtendimento;

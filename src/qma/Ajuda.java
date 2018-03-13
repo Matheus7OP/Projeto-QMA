@@ -1,5 +1,7 @@
 	package qma;
 
+import java.io.Serializable;
+
 /**
  * Classe abstrata que representa uma
  * ajuda, em sua forma mais geral, dentro
@@ -8,7 +10,7 @@
  * @author Matheus Oliveira Pereira
  * @author Gabriel Alves Tavares
  */
-public abstract class Ajuda {
+public abstract class Ajuda implements Serializable{
 	private String matriculaAluno, matriculaTutor;
 	private String disciplina;
 	private boolean foiAvaliada;

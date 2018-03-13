@@ -1,5 +1,7 @@
 package qma;
 
+import java.io.Serializable;
+
 /**
  * Classe que representa o caixa do sistema.
  * Controla o fluxo de dinheiro do sistema.
@@ -7,7 +9,7 @@ package qma;
  * @author Matheus Oliveira Pereira
  * @author Gabriel Alves Tavares
  */
-public class Caixa {
+public class Caixa implements Serializable{
 	private int dinheiro;
 	
 	/**

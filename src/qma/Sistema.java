@@ -1,5 +1,7 @@
 package qma;
 
+import java.io.Serializable;
+
 /**
  * Classe que representa o sistema, em sua
  * ideia mais geral.
