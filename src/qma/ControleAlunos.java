@@ -391,6 +391,20 @@ public class ControleAlunos implements Serializable {
      * @param atributo o atributo que deve ser levado em conta na ordenação
      */
 	public void configurarOrdem(String atributo) {
-		// INCOMPLETO
+		if( !(atributo.equals("NOME")) && !(atributo.equals("MATRICULA")) && !(atributo.equals("EMAIL")) ) {
+			throw new IllegalArgumentException("O atributo utilizado não é válido");
+		}
+		
+		if( atributo.equals("NOME") ) {
+			this.conjuntoAlunos.sort( new OrdenarPorNome() );
+		}
+		
+		if( atributo.equals("MATRICULA") ) {
+			this.conjuntoAlunos.sort( new OrdenarPorMatricula() );
+		}
+		
+		if( atributo.equals("EMAIL") ) {
+			this.conjuntoAlunos.sort( new OrdenarPorEmail() );
+		}
 	}
 }
