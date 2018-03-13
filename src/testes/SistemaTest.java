@@ -1,6 +1,9 @@
 package testes;
 
 import static org.junit.Assert.*;
+
+import java.io.IOException;
+
 import org.junit.*;
 
 import qma.Sistema;
@@ -90,4 +93,21 @@ public class SistemaTest {
 	public void getInfoAlunoTest6() {
 		assertEquals( this.sistema.getInfoAluno("123", "Asdfjsdvjh"), "Matheus" );
 	}
+	
+	@Test
+	public void salvarERecuperarDadosTest() throws IOException, ClassNotFoundException {
+		this.sistema.salvar();
+		this.sistema = new Sistema();
+		this.sistema.carregar();
+
+		assertEquals( this.sistema.listarAlunos(), rep3 + ", " + rep1 + ", " + rep2 );
+		assertEquals( this.sistema.getInfoAluno("123", "Nome"), "Matheus" );
+		assertEquals( this.sistema.getInfoAluno("123", "Matricula"), "123" );
+		assertEquals( this.sistema.getInfoAluno("123", "Email"), "matheus@ufcg.com" );
+		assertEquals( this.sistema.getInfoAluno("123", "Nome"), "Matheus" );
+		
+		this.sistema.limpar();
+	}
+	
+	
 }

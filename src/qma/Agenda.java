@@ -1,5 +1,6 @@
 package qma;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.Set;
  * @author Matheus Oliveira Pereira
  * @author Gabriel Alves Tavares
  */
-public class Agenda {
+public class Agenda implements Serializable {
 	private Map <String, Set <String> > horariosDisponiveis;
 	
 	/**

@@ -1,6 +1,13 @@
 package qma;
 
-import java.io.Serializable;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 
 /**
  * Classe que representa o sistema, em sua
@@ -13,6 +20,7 @@ public class Sistema {
 	private ControleAlunos controleAlunos;
 	private ControleAjudas controleAjudas;
 	private Caixa caixa;
+	private File dadosSalvos;
 	
 	/**
 	 * Construtor do objeto Sistema.
@@ -21,6 +29,7 @@ public class Sistema {
 		this.controleAlunos = new ControleAlunos();
 		this.controleAjudas = new ControleAjudas();
 		this.caixa = new Caixa();
+		this.dadosSalvos = new File("dadosSalvos.txt");
 	}
 	
 	/**
@@ -327,5 +336,64 @@ public class Sistema {
      */
 	public void configurarOrdem(String atributo) {
 		this.controleAlunos.configurarOrdem(atributo);
+	}
+	
+	/**
+	 * Salva os dados do sistema em um arquivo.
+	 * 
+	 * @throws IOException
+	 */
+	public void salvar() throws IOException {
+		FileOutputStream fos = new FileOutputStream(this.dadosSalvos); 
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		
+		try {
+			oos.writeObject(this.controleAlunos);	
+			oos.writeObject(this.controleAjudas);	
+			oos.writeObject(this.caixa);
+		} catch (IOException ioe) {
+			System.out.println("Não foi possível salvar os dados");
+		}
+		
+		fos.close();
+		oos.close();
+	}
+	
+	/**
+	 * Carrega os dados salvos anteriormente.
+	 * 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
+	public void carregar() throws IOException, ClassNotFoundException {
+		FileInputStream fos = new FileInputStream(this.dadosSalvos); 
+		ObjectInputStream oos = new ObjectInputStream(fos);
+		Object ctrlAlunos = null;
+		Object ctrlAjudas = null;
+		Object caixa = null;
+		
+		try {
+			ctrlAlunos = oos.readObject();
+			ctrlAjudas = oos.readObject();
+			caixa = oos.readObject();
+			
+		} catch (EOFException eof) {
+			System.out.println("Não há dados salvos no sistema");
+			return;
+		}
+		
+		this.controleAlunos = (ControleAlunos) ctrlAlunos;
+		this.controleAjudas = (ControleAjudas) ctrlAjudas;
+		this.caixa = (Caixa) caixa;		
+	}
+	
+	/**
+	 * Apaga todos os dados salvos anteriormente.
+	 * 
+	 * @throws IOException 
+	 */
+	public void limpar() throws IOException {
+		FileOutputStream fos = new FileOutputStream(this.dadosSalvos); 
+		fos.write(0);
 	}
 }
